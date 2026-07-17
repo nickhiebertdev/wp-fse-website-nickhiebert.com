@@ -1,0 +1,62 @@
+= 2.0.3 (2026-05-27) =
+
+* Fix: Saving the Server Location tab no longer disables the dashboard widget (or the admin-bar / footer / Show Live System Resources toggles). The location options now live in their own `version_info_location_group` settings group instead of sharing `version_info_general_group` with the General-tab checkboxes — previously, saving on Server Location would clobber the General-tab options to false because unchecked checkboxes aren't in `$_POST`. Reported by Steve Guccione — thanks!
+
+= 2.0.2 (2026-05-26) =
+
+* PRO: New General-settings toggle "Show Live System Resources in Dashboard Widget" enriches the WP admin dashboard widget with the full collected dataset — CPU load with bar + sparkline + load avg + cores, system memory with bar + sparkline + used/total, PHP memory + peak, disk usage with bar, database size with data/index split + table count, environment + detection source, server location, server OS + hostname + IP, server uptime, plugin/theme/core update availability, cron next-event/overdue, Health Advisor critical/warning/good summary, last detected version change, PHP runtime limits (memory_limit / max_execution_time / upload_max_filesize / post_max_size / max_input_vars), HTTPS, WP_DEBUG + debug.log size, object-cache backend, WP + PHP timezones. (Driven by direct customer feedback.)
+* PRO: CPU and Memory rows now render a compact inline-SVG sparkline alongside the percent bar that builds a rolling 30-sample history (~7.5 min at the dashboard's 15s Heartbeat cadence) so admins can see direction-of-travel at a glance. Sparkline stroke recolors green/orange/red on the same 70%/90% thresholds as the bar.
+* PRO: New `LocationProvider` resolves Server Location in this order: 30-day transient cache → configured provider lookup → reverse-DNS fallback → graceful "Unknown". Failed lookups short-cache for 1 hour to avoid hammering a dead network on every render.
+* PRO: New "Detect now" button on Settings → General busts the location transient + re-runs the lookup over admin-ajax (nonce + manage_options-gated).
+* PRO: Widget now also shows Server OS (`php_uname()`), Hostname (`gethostname()`), Server IP (`$_SERVER['SERVER_ADDR']`), Server Port, Document Root (masked through `[ABSPATH]`), DB Max Connections, DB Max Allowed Packet, and Server Uptime (`/proc/uptime`, "Unavailable" on Windows). Closes the parity gap with the long-stale wp-server-stats plugin (last released 2017-11-24) without inheriting its `shell_exec()` dependency that breaks on managed hosts.
+* PRO: Server Location now ships four selectable providers — **Version Info Geolocation (anonymous)** (default — our own Cloudflare Worker at geo.versioninfoplugin.com, logs nothing, returns city/region/country/postal/timezone/lat-long/ASN/CF colo), **Cloudflare cdn-cgi/trace** (country only, free, anonymous), **ip-api.com** (the legacy default, what wp-server-stats used), and **MaxMind GeoLite2 City Web Service** (requires free license key). An enable/disable checkbox above the dropdown lets you turn auto-detect off entirely. New doc page at https://docs.versioninfoplugin.com/pro-features-server-location/ describes the privacy/accuracy trade-offs in depth.
+* PRO: System Resources tab now includes a collapsible **PHP Modules** section (every loaded extension with version) and a one-click **Purge VI Caches** button that bursts every `vi_*` transient at once.
+* PRO: CPU, memory, and disk rows in the dashboard widget display compact color-coded percent bars matching the System Resources tab. CPU and memory bars redraw live on every WordPress Heartbeat tick — no page reload required.
+* PRO: Aggregate widget extras cached for 5 minutes behind a transient (filterable via `version_info_widget_extras_ttl`) so the widget stays snappy.
+* Settings → General now dynamically hides the "Show Live System Resources in Dashboard Widget" row until the parent "Show Version Info as Dashboard Widget" toggle is enabled — keeps the form uncluttered until the option is meaningful. Hide/show is instant via inline JS; the child's checked state survives parent toggles.
+* Agency: New "Lock Tab to Current User" checkbox on the White Label tab. When enabled, the White Label tab is hidden from every other administrator and direct POST writes to white-label options are blocked from non-owners. The lock auto-releases if the owner's account is deleted (via `deleted_user` hook), and also self-heals on load if the recorded owner ID no longer corresponds to a real user.
+* Agency: New "Hide Doc Links" checkbox on the White Label tab. When enabled, in-plugin links to `docs.versioninfoplugin.com` are suppressed across every settings tab so client-facing dashboards never expose the underlying plugin's documentation domain.
+* New: Inline doc links on every settings tab pointing at the matching `docs.versioninfoplugin.com` page for the feature being configured.
+
+= 2.0.1 (2026-05-17) =
+
+* Backwards compatibility: now supports WP 4.7+ and PHP 5.6+, matching the plugin's purpose of inspecting older environments.
+* Refactored to remove PHP 7.0+/7.1+/7.4+/8.0+/8.1+ syntax (declare(strict_types), scalar/return type declarations, null coalescing ??, Throwable, typed properties, arrow functions, match, str_starts_with, mixed, nullable returns, void returns, private const, array_is_list).
+* Feature-detect wp_date() and wp_timezone_string() so the plugin degrades gracefully on WP 4.7–5.2.
+* Health Advisor's PHP minimum check now flags pre-7.4 as a recommendation rather than declaring PHP < 8.1 a critical risk.
+* Compatibility verified against WordPress 7.0.
+
+= 2.0.0 =
+
+* Major architecture refactor with PSR-4 autoloading and Freemius SDK integration.
+* PRO: CPU/RAM monitoring, database size tracking, environment indicators, version history, health advisor, JSON system export.
+* Agency: white-labeling, role-based visibility, multisite network dashboard, email alerts, error log viewer.
+* (Previously bumped PHP minimum to 8.1 — reverted in 2.0.1.)
+
+= 1.3.3 =
+
+* Verified WordPress 6.9 compatibility.
+
+= 1.3.2 = 
+
+* Added settings for displaying the version info on WP-Admin bar and dashboard widget.
+* Added namespace, sanitization, and other security improvements.
+* Prepared plugin strings for translation.
+* Translations added for 13 most common Wordpress languages.
+
+= 1.3.1 = 
+
+* Updated compatibility details. 
+* Changed to GPL. 
+
+= 1.3.0 =
+
+Due to the current tumult surrounding the .org repository, I have decided to put this plugin up for adoption. With this update, it has been successfully transferred to the new owner, @gauchoplugins. All future updates and maintenance will be handled by the new owner. Thank you for your support and understanding.
+
+= 1.2.1 =
+
+* remove putenv to staging 🤦
+
+= 1.2.0 =
+
+* If WP_ENVIRONMENT_TYPE is defined (either through PHP env var or constant), display this info.
