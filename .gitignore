@@ -1,0 +1,16 @@
+# Ignore core WordPress configuration files with sensitive data
+wp-config.php
+
+# Ignore user-uploaded media files (keep these on the server only)
+wp-content/uploads/
+wp-content/blogs.dir/
+
+# Ignore server-generated error logs and system logs
+*.log
+.hcflag
+error_log
+
+# Ignore development files and local environment configs
+.DS_Store
+.vscode/
+sftp.json
