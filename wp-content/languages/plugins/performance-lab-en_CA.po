@@ -1,0 +1,64 @@
+# Translation of Plugins - Performance Lab - Stable (latest release) in English (Canada)
+# This file is distributed under the same license as the Plugins - Performance Lab - Stable (latest release) package.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2022-03-11 04:32:56+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: GlotPress/4.0.3\n"
+"Language: en_CA\n"
+"Project-Id-Version: Plugins - Performance Lab - Stable (latest release)\n"
+
+#: includes/admin/load.php:25
+#: includes/site-health/audit-autoloaded-options/helper.php:35
+#: includes/site-health/audit-enqueued-assets/helper.php:172
+#: includes/site-health/avif-headers/helper.php:29
+#: includes/site-health/avif-support/helper.php:29
+#: includes/site-health/bfcache-compatibility-headers/helper.php:30
+#: includes/site-health/effective-asset-cache-headers/helper.php:30
+#: includes/site-health/webp-support/helper.php:29
+msgid "Performance"
+msgstr "Performance"
+
+#. Plugin URI of the plugin
+#: load.php
+msgid "https://github.com/WordPress/performance"
+msgstr "https://github.com/WordPress/performance"
+
+#. Plugin Name of the plugin
+#: load.php includes/admin/load.php:230
+msgid "Performance Lab"
+msgstr "Performance Lab"
+
+#. translators: %s is the settings URL
+#: includes/admin/load.php:326 includes/admin/plugins.php:597
+#: includes/admin/plugin-activate-ajax.js:88
+msgid "Settings"
+msgstr "Settings"
+
+#: includes/admin/load.php:246
+msgid "Settings > Performance"
+msgstr "Settings > Performance"
+
+#: includes/site-health/webp-support/helper.php:44
+msgid "Your site does not support WebP"
+msgstr "Your site does not support WebP"
+
+#: includes/site-health/webp-support/helper.php:26
+msgid "Your site supports WebP"
+msgstr "Your site supports WebP"
+
+#: includes/site-health/webp-support/hooks.php:27
+msgid "WebP Support"
+msgstr "WebP Support"
+
+#: includes/site-health/audit-autoloaded-options/helper.php:83
+#: includes/site-health/audit-enqueued-assets/helper.php:205
+msgid "More info about performance optimization"
+msgstr "More info about performance optimisation"
+
+#: includes/site-health/audit-enqueued-assets/helper.php:204
+msgid "https://wordpress.org/support/article/optimization/"
+msgstr "https://wordpress.org/support/article/optimization/"
