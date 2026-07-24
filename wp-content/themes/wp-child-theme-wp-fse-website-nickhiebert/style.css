@@ -45,7 +45,19 @@ Updated: 2026-07-24 22:35:00
 }
 
 @layer utilities {
+/* Sizing */
   .w-full {
-    width: 100%;
+    width: var(--w-full);
   }
+
+  /* Typography */
+  --text-left: left;
+  --text-center: center;
+  --text-right: right;
+  --text-justify: justify;
+  --text-start: start;
+  --text-end: end;
+  --text-uppercase: uppercase;
+  --text-lowercase: lowercase;
+  --text-capitalize: capitalize;
 }
