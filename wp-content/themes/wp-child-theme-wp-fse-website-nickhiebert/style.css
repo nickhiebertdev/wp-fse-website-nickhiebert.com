@@ -22,7 +22,7 @@ Updated: 2026-07-24 22:59:00
 }
 
 @layer base {
-  :root {
+:root {
     /* Colors */
     --color-base: #FFFFFF;
     --color-contrast: #000000;
@@ -31,6 +31,17 @@ Updated: 2026-07-24 22:59:00
     --color-accent-4: #1A1A1A;
     --color-accent-5: #595959;
     --color-accent-6: #D4D4D4;
+
+/* Typography */
+    --text-left: left;
+    --text-center: center;
+    --text-right: right;
+    --text-justify: justify;
+    --text-start: start;
+    --text-end: end;
+    --text-uppercase: uppercase;
+    --text-lowercase: lowercase;
+    --text-capitalize: capitalize;
 
     /* Sizing */
     --w-full: 100%;
@@ -45,19 +56,36 @@ Updated: 2026-07-24 22:59:00
 }
 
 @layer utilities {
+/* Typography */
+    .text-left {
+        text-align: var(--text-left);
+    }
+    .text-center {
+        text-align: var(--text-center);
+    }
+    .text-right {
+        text-align: var(--text-right);
+    }
+    .text-justify {
+        text-align: var(--text-justify);
+    }
+    .text-start {
+        text-align: var(--text-start);
+    }
+    .text-end {
+        text-align: var(--text-end);
+    }
+    .text-uppercase {
+        text-transform: var(--text-uppercase);
+    }
+    .text-lowercase {
+        text-transform: var(--text-lowercase);
+    }
+    .text-capitalize {
+        text-transform: var(--text-capitalize);
+    }
 /* Sizing */
-  .w-full {
-    width: var(--w-full);
-  }
-
-  /* Typography */
-  --text-left: left;
-  --text-center: center;
-  --text-right: right;
-  --text-justify: justify;
-  --text-start: start;
-  --text-end: end;
-  --text-uppercase: uppercase;
-  --text-lowercase: lowercase;
-  --text-capitalize: capitalize;
+    .w-full {
+        width: var(--w-full);
+    }
 }
