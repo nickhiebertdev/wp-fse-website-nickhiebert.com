@@ -11,3 +11,41 @@ Updated: 2026-07-17 20:39:49
 
 */
 
+@layer reset, base, theme, components, utilities;
+
+@layer reset {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+}
+
+@layer base {
+  :root {
+    /* Colors */
+    --color-base: #FFFFFF;
+    --color-contrast: #000000;
+    --color-accent-1: #2532E9;
+    --color-accent-2: #7209B7;
+    --color-accent-4: #1A1A1A;
+    --color-accent-5: #595959;
+    --color-accent-6: #D4D4D4;
+
+    /* Sizing */
+    --w-full: 100%;
+  }
+
+@layer theme {
+  
+}
+
+@layer components {
+
+}
+
+@layer utilities {
+  .w-full {
+    width: 100%;
+  }
+}
