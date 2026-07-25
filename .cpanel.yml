@@ -1,5 +1,4 @@
 ---
 deployment:
   tasks:
-    - export DEPLOYPATH=/home/nickvnxf/wp-fse-website-nickhiebert.com/
-    - /bin/cp -R * $DEPLOYPATH
+    - /bin/git checkout -f
