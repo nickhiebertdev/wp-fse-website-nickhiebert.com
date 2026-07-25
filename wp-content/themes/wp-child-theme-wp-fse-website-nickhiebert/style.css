@@ -6,8 +6,8 @@ Author: Nick Hiebert
 Author URI: https://wordpress.org
 Description: Custom Child-Theme of Twenty Twenty-Five for WP FSE (Full Site Editing) Website Nick Hiebert
 Tags: one-column,custom-colors,custom-menu,custom-logo,editor-style,featured-images,full-site-editing,block-patterns,rtl-language-support,sticky-post,threaded-comments,translation-ready,wide-blocks,block-styles,style-variations,accessibility-ready,blog,portfolio,news
-Version: 1.5.1784961700
-Updated: 2026-07-25 11:22:00
+Version: 1.5.1784962200
+Updated: 2026-07-25 11:30:00
 
 */
 
@@ -22,7 +22,7 @@ Updated: 2026-07-25 11:22:00
 }
 
 @layer base {
-:root {
+  :root {
     /* Colors */
     --color-base: #FFFFFF;
     --color-contrast: #000000;
@@ -33,7 +33,7 @@ Updated: 2026-07-25 11:22:00
     --color-accent-5: #595959;
     --color-accent-6: #D4D4D4;
 
-/* Typography */
+    /* Typography */
     --text-left: left;
     --text-center: center;
     --text-right: right;
@@ -47,6 +47,7 @@ Updated: 2026-07-25 11:22:00
     /* Sizing */
     --w-full: 100%;
   }
+}
 
 @layer theme {
   
