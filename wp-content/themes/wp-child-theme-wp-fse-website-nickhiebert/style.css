@@ -24,14 +24,14 @@ Updated: 2026-07-25 11:30:00
 @layer base {
   :root {
     /* Colors */
-    --color-base: #FFFFFF;
+    --color-base: #ffffff;
     --color-contrast: #000000;
-    --color-accent-1: #2532E9;
-    --color-accent-2: #7209B7;
-    --color-accent-3: #F7F1E1;
-    --color-accent-4: #1A1A1A;
+    --color-accent-1: #2532e9;
+    --color-accent-2: #7209b7;
+    --color-accent-3: #f7f1e1;
+    --color-accent-4: #1a1a1a;
     --color-accent-5: #595959;
-    --color-accent-6: #D4D4D4;
+    --color-accent-6: #d4d4d4;
 
     /* Typography */
     --text-left: left;
@@ -50,44 +50,42 @@ Updated: 2026-07-25 11:30:00
 }
 
 @layer theme {
-  
 }
 
 @layer components {
-
 }
 
 @layer utilities {
-/* Typography */
-    .text-left {
-        text-align: var(--text-left);
-    }
-    .text-center {
-        text-align: var(--text-center);
-    }
-    .text-right {
-        text-align: var(--text-right);
-    }
-    .text-justify {
-        text-align: var(--text-justify);
-    }
-    .text-start {
-        text-align: var(--text-start);
-    }
-    .text-end {
-        text-align: var(--text-end);
-    }
-    .text-uppercase {
-        text-transform: var(--text-uppercase);
-    }
-    .text-lowercase {
-        text-transform: var(--text-lowercase);
-    }
-    .text-capitalize {
-        text-transform: var(--text-capitalize);
-    }
-/* Sizing */
-    .w-full {
-        width: var(--w-full);
-    }
+  /* Typography */
+  .text-left {
+    text-align: var(--text-left);
+  }
+  .text-center {
+    text-align: var(--text-center);
+  }
+  .text-right {
+    text-align: var(--text-right);
+  }
+  .text-justify {
+    text-align: var(--text-justify);
+  }
+  .text-start {
+    text-align: var(--text-start);
+  }
+  .text-end {
+    text-align: var(--text-end);
+  }
+  .text-uppercase {
+    text-transform: var(--text-uppercase);
+  }
+  .text-lowercase {
+    text-transform: var(--text-lowercase);
+  }
+  .text-capitalize {
+    text-transform: var(--text-capitalize);
+  }
+  /* Sizing */
+  .w-full {
+    width: var(--w-full);
+  }
 }

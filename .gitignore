@@ -2,6 +2,8 @@
 wp-config.php
 
 # Ignore user-uploaded media files (keep these on the server only)
+wp-admin/
+wp-includes/
 wp-content/uploads/
 wp-content/blogs.dir/
 
@@ -9,6 +11,7 @@ wp-content/blogs.dir/
 *.log
 .hcflag
 error_log
+cache/
 
 # Ignore development files and local environment configs
 .DS_Store
