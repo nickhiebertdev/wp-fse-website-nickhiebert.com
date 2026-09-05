@@ -1,3 +1,18 @@
+= 2.1.0 (2026-08-19) =
+
+* Updated Freemius SDK to 2.13.4.
+* Tested up to WordPress 7.1.
+* Free: New `includes/SystemInfo.php` — single source of truth for PHP EOL dates (adds 8.5 => 2029-12-31; verified against endoflife.date 2026-08-11), PHP memory limit/usage helpers, server IP, and the Markdown system-info table. `Pro\HealthAdvisor` now reads PHP EOL dates from it (its own `PHP_EOL_DATES` const removed) so free and PRO data can never drift.
+* Free: Memory limit + live usage % + server IP in footer/admin bar/dashboard widget behind new option `version_info_show_memory` (boolean, default true, registered in `version_info_general_group` WITH a matching row in the General form — see the 2.0.3 settings-group rule). Rows/segments are omitted entirely when `memory_get_usage` is disabled or `SERVER_ADDR`/`LOCAL_ADDR` are absent; `memory_limit = -1` renders as "(no limit)".
+* Free: PHP EOL countdown — widget row `php_eol` always shown; footer/admin-bar segment only within 365 days of EOL or past EOL.
+* Free: Copy-as-Markdown — admin-bar child node `version_info_copy_md` + widget button `#vi-copy-md` (rendered outside the kses'd item loop). One inline vanilla-JS handler: `navigator.clipboard` on secure contexts, textarea + `execCommand('copy')` fallback elsewhere; payload built server-side and JSON-encoded with `JSON_HEX_*` flags.
+* PRO: `HealthAdvisor::test_ssl_expiry()` — `stream_socket_client` + `openssl_x509_parse` probe (every capability `function_exists`-guarded, `verify_peer` off so expired certs still handshake), thresholds 21/7 days, non-HTTPS and failed probes return informational passes. New transient `vi_ssl_expiry` (12h success / 1h failure, filter `version_info_ssl_cache_ttl`) added to Purge VI Caches. Site Health test `version_info_ssl_expiry`. Widget row reads cache only (`get_cached_ssl_expiry()`, `all_checks(false)`) — dashboard paints never block on the probe.
+* PRO: `test_php_minimum()` rewritten as a graded ladder against new `WP_PHP_MATRIX` const (7.4 minimum / 8.3 recommended / 8.5 fully supported per Make WordPress Core 2026-01-09 + 2026-05-22). Result slug and Site Health ID unchanged.
+* PRO: `MYSQL_EOL_DATES` gains 9.7 LTS => 2034-04-21. New `HealthAdvisor::all_checks()` feeds both the settings tab and the widget summary.
+* PRO: `EmailAlerts` registration moved from `AgencyFeatures` to `ProFeatures` (same commit — split registration would double-send). `email_alerts` moved from `AGENCY_TABS` to `PRO_TABS`; doc slug now `pro-features-email-alerts` (docs redirect in place). Options/group/sanitizers untouched — Agency customers' settings carry over.
+* Fix: `SettingsPage::render()` uses `is_plan_or_trial('agency')` to match `Plugin::maybe_init_pro()` — Agency-trial tabs unlock correctly.
+* Fix: `VERSION_INFO_VERSION` constant stale at 2.0.1 since 2.0.2; now 2.1.0 and kept in lockstep with the header.
+
 = 2.0.3 (2026-05-27) =
 
 * Fix: Saving the Server Location tab no longer disables the dashboard widget (or the admin-bar / footer / Show Live System Resources toggles). The location options now live in their own `version_info_location_group` settings group instead of sharing `version_info_general_group` with the General-tab checkboxes — previously, saving on Server Location would clobber the General-tab options to false because unchecked checkboxes aren't in `$_POST`. Reported by Steve Guccione — thanks!

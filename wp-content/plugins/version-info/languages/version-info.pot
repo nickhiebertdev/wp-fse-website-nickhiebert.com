@@ -1,33 +1,35 @@
-# Copyright (C) 2024 Gaucho Plugins
+# Copyright (C) 2026 Gaucho Plugins
 # This file is distributed under the GPLv3.
 msgid ""
 msgstr ""
-"Project-Id-Version: Version Info 1.3.2\n"
+"Project-Id-Version: Version Info 2.1.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/version-info\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2024-10-15T15:32:56+00:00\n"
+"POT-Creation-Date: 2026-08-19T07:43:00+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"X-Generator: WP-CLI 2.10.0\n"
+"X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: version-info\n"
 
 #. Plugin Name of the plugin
 #: version-info.php
-#: version-info.php:121
+#: includes/DashboardWidget.php:30
+#: includes/pro/NetworkDashboard.php:34
+#: includes/SettingsPage.php:31
 msgid "Version Info"
 msgstr ""
 
 #. Plugin URI of the plugin
 #: version-info.php
-msgid "https://wordpress.org/plugins/version-info"
+msgid "https://versioninfoplugin.com"
 msgstr ""
 
 #. Description of the plugin
 #: version-info.php
-msgid "Show current WordPress, PHP, Web Server, and MySQL versions in admin footer."
+msgid "Show current WordPress, PHP, Web Server, and MySQL versions optionally in the admin footer, WP-Admin bar, or dashboard widget."
 msgstr ""
 
 #. Author of the plugin
@@ -40,31 +42,1486 @@ msgstr ""
 msgid "https://gauchoplugins.com"
 msgstr ""
 
-#: version-info.php:38
-msgid "Error fetching version"
+#: includes/AdminBar.php:45
+#: includes/DashboardWidget.php:160
+msgid "Copy as Markdown"
 msgstr ""
 
-#: version-info.php:43
-msgid "You are running WordPress %s | PHP %s | Web Server %s | MySQL %s"
+#: includes/AdminBar.php:72
+#: includes/Plugin.php:147
+#: includes/pro/LocationProvider.php:138
+#: includes/pro/LocationProvider.php:379
+#: includes/pro/LocationProvider.php:456
+#: includes/pro/LocationProvider.php:476
+#: includes/pro/NetworkDashboard.php:152
+#: includes/SystemInfo.php:193
+#: includes/SystemInfo.php:202
+msgid "Unknown"
 msgstr ""
 
-#. Translators: %s is the environment type.
-#: version-info.php:53
-msgid "Environment <code>%s</code>"
+#. translators: %1$s: WP version, %2$s: PHP version, %3$s: server software, %4$s: MySQL version
+#: includes/AdminBar.php:79
+#, php-format
+msgid "WordPress %1$s | PHP %2$s | Web Server %3$s | MySQL %4$s"
 msgstr ""
 
-#: version-info.php:139
+#. translators: %s: PHP memory usage summary, e.g. "24.6 MB of 256 MB (9.6%)"
+#: includes/AdminBar.php:90
+#, php-format
+msgid " | Mem %s"
+msgstr ""
+
+#: includes/AdminBar.php:130
+msgid "Copied!"
+msgstr ""
+
+#: includes/AdminBar.php:131
+msgid "Copy failed"
+msgstr ""
+
+#: includes/DashboardWidget.php:43
 msgid "WordPress Version:"
 msgstr ""
 
-#: version-info.php:140
+#: includes/DashboardWidget.php:47
 msgid "PHP Version:"
 msgstr ""
 
-#: version-info.php:141
+#: includes/DashboardWidget.php:51
 msgid "Web Server:"
 msgstr ""
 
-#: version-info.php:142
+#: includes/DashboardWidget.php:58
 msgid "MySQL Version:"
+msgstr ""
+
+#: includes/DashboardWidget.php:69
+#: includes/pro/ProFeatures.php:685
+msgid "PHP Memory:"
+msgstr ""
+
+#: includes/DashboardWidget.php:78
+#: includes/pro/ProFeatures.php:1017
+msgid "Server IP:"
+msgstr ""
+
+#. translators: %s: end-of-life date of the running PHP version
+#: includes/DashboardWidget.php:88
+#, php-format
+msgid "End of life since %s"
+msgstr ""
+
+#. translators: %1$s: number of days until end of life, %2$s: end-of-life date
+#: includes/DashboardWidget.php:91
+#, php-format
+msgid "Supported — %1$s days left (%2$s)"
+msgstr ""
+
+#: includes/DashboardWidget.php:93
+msgid "No EOL data (current release)"
+msgstr ""
+
+#: includes/DashboardWidget.php:96
+msgid "PHP Lifecycle:"
+msgstr ""
+
+#: includes/Plugin.php:68
+msgid "View documentation"
+msgstr ""
+
+#: includes/Plugin.php:136
+msgid "Get Version"
+msgstr ""
+
+#. translators: %1$s: WP version, %2$s: update link, %3$s: PHP version, %4$s: server software, %5$s: MySQL version
+#: includes/Plugin.php:155
+#, php-format
+msgid "WordPress %1$s%2$s | PHP %3$s | Web Server %4$s | MySQL %5$s"
+msgstr ""
+
+#. translators: %s: PHP memory usage summary, e.g. "24.6 MB of 256 MB (9.6%)"
+#: includes/Plugin.php:167
+#, php-format
+msgid " | Memory %s"
+msgstr ""
+
+#. translators: %s: server IP address
+#: includes/Plugin.php:172
+#, php-format
+msgid " | IP %s"
+msgstr ""
+
+#: includes/pro/CpuProvider.php:19
+#: includes/pro/ProFeatures.php:264
+msgid "CPU Load"
+msgstr ""
+
+#: includes/pro/DatabaseProvider.php:22
+#: includes/pro/ProFeatures.php:308
+msgid "Database Size"
+msgstr ""
+
+#: includes/pro/EmailAlerts.php:110
+#: includes/SettingsPage.php:330
+#: includes/SettingsPage.php:549
+msgid "Email Alerts"
+msgstr ""
+
+#: includes/pro/EmailAlerts.php:111
+msgid "Receive email notifications when WordPress, PHP, or MySQL versions change on this site."
+msgstr ""
+
+#: includes/pro/EmailAlerts.php:113
+msgid "Email Alerts docs"
+msgstr ""
+
+#: includes/pro/EmailAlerts.php:123
+msgid "Enable Email Alerts"
+msgstr ""
+
+#: includes/pro/EmailAlerts.php:128
+msgid "Recipients"
+msgstr ""
+
+#: includes/pro/EmailAlerts.php:130
+msgid "Comma-separated email addresses. Defaults to the site admin email."
+msgstr ""
+
+#: includes/pro/EmailAlerts.php:133
+msgid "Alert For"
+msgstr ""
+
+#: includes/pro/EmailAlerts.php:137
+#: includes/pro/VersionHistory.php:286
+#: includes/SystemInfo.php:196
+msgid "WordPress"
+msgstr ""
+
+#: includes/pro/EmailAlerts.php:138
+#: includes/pro/VersionHistory.php:287
+#: includes/SystemInfo.php:197
+msgid "PHP"
+msgstr ""
+
+#: includes/pro/EmailAlerts.php:139
+#: includes/pro/VersionHistory.php:288
+#: includes/SystemInfo.php:199
+msgid "MySQL"
+msgstr ""
+
+#: includes/pro/EnvironmentProvider.php:27
+#: includes/SettingsPage.php:323
+msgid "Environment"
+msgstr ""
+
+#: includes/pro/EnvironmentProvider.php:127
+msgid "Production"
+msgstr ""
+
+#: includes/pro/EnvironmentProvider.php:128
+msgid "Staging"
+msgstr ""
+
+#: includes/pro/EnvironmentProvider.php:129
+msgid "Development"
+msgstr ""
+
+#: includes/pro/EnvironmentProvider.php:130
+msgid "Local"
+msgstr ""
+
+#: includes/pro/ErrorLogViewer.php:31
+#: includes/SettingsPage.php:604
+msgid "PHP Error Log"
+msgstr ""
+
+#: includes/pro/ErrorLogViewer.php:33
+msgid "Error Log Viewer docs"
+msgstr ""
+
+#: includes/pro/ErrorLogViewer.php:40
+msgid "No error log file found. Ensure WP_DEBUG_LOG is enabled or the PHP error_log directive is set."
+msgstr ""
+
+#: includes/pro/ErrorLogViewer.php:48
+msgid "The error log file exists but is not readable by PHP. Check file permissions."
+msgstr ""
+
+#. translators: %1$s: file size, %2$d: number of lines
+#: includes/pro/ErrorLogViewer.php:57
+#, php-format
+msgid "Log file size: %1$s. Showing the last %2$d lines."
+msgstr ""
+
+#: includes/pro/ErrorLogViewer.php:65
+msgid "Download Log (ZIP)"
+msgstr ""
+
+#: includes/pro/ErrorLogViewer.php:73
+msgid "Log Entry"
+msgstr ""
+
+#: includes/pro/ErrorLogViewer.php:77
+msgid "The log file is empty."
+msgstr ""
+
+#: includes/pro/ErrorLogViewer.php:100
+msgid "Unauthorized"
+msgstr ""
+
+#: includes/pro/ErrorLogViewer.php:105
+msgid "Log file not available."
+msgstr ""
+
+#: includes/pro/ErrorLogViewer.php:112
+msgid "Could not create ZIP archive."
+msgstr ""
+
+#: includes/pro/HealthAdvisor.php:69
+msgid "PHP End-of-Life Check"
+msgstr ""
+
+#: includes/pro/HealthAdvisor.php:74
+msgid "MySQL End-of-Life Check"
+msgstr ""
+
+#: includes/pro/HealthAdvisor.php:79
+msgid "PHP Minimum Version"
+msgstr ""
+
+#: includes/pro/HealthAdvisor.php:84
+msgid "SSL Certificate Expiry"
+msgstr ""
+
+#: includes/pro/HealthAdvisor.php:106
+#: includes/pro/HealthAdvisor.php:126
+#: includes/pro/HealthAdvisor.php:142
+#: includes/pro/HealthAdvisor.php:158
+msgid "PHP version lifecycle"
+msgstr ""
+
+#: includes/pro/HealthAdvisor.php:109
+#: includes/pro/HealthAdvisor.php:161
+#: includes/pro/HealthAdvisor.php:190
+#: includes/pro/HealthAdvisor.php:242
+#: includes/pro/HealthAdvisor.php:305
+#: includes/pro/HealthAdvisor.php:351
+#: includes/pro/HealthAdvisor.php:364
+#: includes/pro/HealthAdvisor.php:418
+msgid "Passed"
+msgstr ""
+
+#. translators: %s: PHP version
+#: includes/pro/HealthAdvisor.php:112
+#, php-format
+msgid "You are running PHP %s. No end-of-life data is available for this version — it is likely a current release."
+msgstr ""
+
+#: includes/pro/HealthAdvisor.php:129
+#: includes/pro/HealthAdvisor.php:208
+#: includes/pro/HealthAdvisor.php:381
+msgid "Critical"
+msgstr ""
+
+#. translators: %1$s: PHP version, %2$s: EOL date
+#: includes/pro/HealthAdvisor.php:132
+#, php-format
+msgid "PHP %1$s reached end-of-life on %2$s and no longer receives security updates. Upgrade immediately."
+msgstr ""
+
+#: includes/pro/HealthAdvisor.php:145
+#: includes/pro/HealthAdvisor.php:226
+#: includes/pro/HealthAdvisor.php:290
+#: includes/pro/HealthAdvisor.php:403
+msgid "Warning"
+msgstr ""
+
+#. translators: %1$s: PHP version, %2$d: days remaining, %3$s: EOL date
+#: includes/pro/HealthAdvisor.php:148
+#, php-format
+msgid "PHP %1$s has %2$d days of support remaining (EOL: %3$s). Plan an upgrade soon."
+msgstr ""
+
+#. translators: %1$s: PHP version, %2$s: EOL date
+#: includes/pro/HealthAdvisor.php:164
+#, php-format
+msgid "PHP %1$s is actively supported until %2$s."
+msgstr ""
+
+#: includes/pro/HealthAdvisor.php:187
+#: includes/pro/HealthAdvisor.php:205
+#: includes/pro/HealthAdvisor.php:223
+#: includes/pro/HealthAdvisor.php:239
+msgid "MySQL version lifecycle"
+msgstr ""
+
+#. translators: %s: MySQL version
+#: includes/pro/HealthAdvisor.php:193
+#, php-format
+msgid "You are running MySQL %s. No end-of-life data is available for this version."
+msgstr ""
+
+#. translators: %1$s: MySQL version, %2$s: EOL date
+#: includes/pro/HealthAdvisor.php:211
+#, php-format
+msgid "MySQL %1$s reached end-of-life on %2$s. Contact your hosting provider to upgrade."
+msgstr ""
+
+#. translators: %1$s: MySQL version, %2$d: days, %3$s: EOL date
+#: includes/pro/HealthAdvisor.php:229
+#, php-format
+msgid "MySQL %1$s has %2$d days of support remaining (EOL: %3$s)."
+msgstr ""
+
+#. translators: %1$s: MySQL version, %2$s: EOL date
+#: includes/pro/HealthAdvisor.php:245
+#, php-format
+msgid "MySQL %1$s is supported until %2$s."
+msgstr ""
+
+#: includes/pro/HealthAdvisor.php:263
+msgid "PHP minimum recommended version"
+msgstr ""
+
+#: includes/pro/HealthAdvisor.php:274
+msgid "Critical Security Risk"
+msgstr ""
+
+#. translators: %1$s: PHP version, %2$s: minimum supported PHP version
+#: includes/pro/HealthAdvisor.php:277
+#, php-format
+msgid "Your server is running PHP %1$s, below WordPress core's minimum supported version %2$s (as of WordPress 7.0). Version Info still works, but upgrading PHP is strongly advised."
+msgstr ""
+
+#. translators: %1$s: PHP version, %2$s: recommended PHP version
+#: includes/pro/HealthAdvisor.php:293
+#, php-format
+msgid "Your server is running PHP %1$s. WordPress core still supports it, but the recommended minimum is %2$s. Plan an upgrade."
+msgstr ""
+
+#. translators: %1$s: PHP version, %2$s: newest fully supported PHP version
+#: includes/pro/HealthAdvisor.php:308
+#, php-format
+msgid "Your server is running PHP %1$s, at or above the recommended minimum. WordPress fully supports PHP up to %2$s."
+msgstr ""
+
+#: includes/pro/HealthAdvisor.php:343
+msgid "SSL certificate expiry"
+msgstr ""
+
+#: includes/pro/HealthAdvisor.php:352
+msgid "This site does not use HTTPS on its home URL, so there is no certificate to check."
+msgstr ""
+
+#: includes/pro/HealthAdvisor.php:365
+msgid "The SSL certificate has not been checked yet, or could not be checked from this server (some hosts block outbound TLS probes). This is informational only."
+msgstr ""
+
+#. translators: %s: certificate expiry date
+#: includes/pro/HealthAdvisor.php:385
+#, php-format
+msgid "The SSL certificate for this site EXPIRED on %s. Visitors are seeing browser security warnings — renew it immediately."
+msgstr ""
+
+#. translators: %1$s: number of days, %2$s: certificate expiry date
+#: includes/pro/HealthAdvisor.php:390
+#, php-format
+msgid "The SSL certificate for this site expires in %1$s days (%2$s) and no renewal has landed. Check your certificate renewal now."
+msgstr ""
+
+#. translators: %1$s: number of days, %2$s: certificate expiry date
+#: includes/pro/HealthAdvisor.php:406
+#, php-format
+msgid "The SSL certificate for this site expires in %1$s days (%2$s). If auto-renewal is configured this will resolve itself; keep an eye on it."
+msgstr ""
+
+#. translators: %1$s: number of days, %2$s: certificate expiry date
+#: includes/pro/HealthAdvisor.php:421
+#, php-format
+msgid "The SSL certificate is valid for another %1$s days (until %2$s)."
+msgstr ""
+
+#: includes/pro/HealthAdvisor.php:520
+#: includes/SettingsPage.php:326
+#: includes/SettingsPage.php:539
+msgid "Health Advisor"
+msgstr ""
+
+#: includes/pro/HealthAdvisor.php:521
+msgid "Predictive alerts for end-of-life software and critical server configuration issues. These checks also appear in the WordPress Site Health screen."
+msgstr ""
+
+#: includes/pro/HealthAdvisor.php:523
+msgid "Health Advisor docs"
+msgstr ""
+
+#: includes/pro/HealthAdvisor.php:530
+msgid "Check"
+msgstr ""
+
+#: includes/pro/HealthAdvisor.php:531
+msgid "Status"
+msgstr ""
+
+#: includes/pro/HealthAdvisor.php:532
+msgid "Details"
+msgstr ""
+
+#: includes/pro/LocationProvider.php:49
+#: includes/pro/ProFeatures.php:388
+#: includes/SettingsPage.php:324
+#: includes/SettingsPage.php:520
+msgid "Server Location"
+msgstr ""
+
+#: includes/pro/LocationProvider.php:75
+msgid "Version Info Geolocation (anonymous)"
+msgstr ""
+
+#: includes/pro/LocationProvider.php:76
+msgid "Our own Cloudflare-powered endpoint. Returns city, region, country, timezone, postal code, lat/long, hosting provider, ASN, and CF datacenter. We log nothing — the Worker echoes Cloudflare's edge geoIP for your IP. No third-party dependency."
+msgstr ""
+
+#: includes/pro/LocationProvider.php:81
+msgid "Cloudflare cdn-cgi/trace (country only)"
+msgstr ""
+
+#: includes/pro/LocationProvider.php:82
+msgid "Free, anonymous, country-level only. Hits 1.1.1.1's public trace endpoint. No auth, never rate-limited."
+msgstr ""
+
+#: includes/pro/LocationProvider.php:87
+msgid "ip-api.com"
+msgstr ""
+
+#: includes/pro/LocationProvider.php:88
+msgid "Free for non-commercial use. Returns city, region, country. The same service the deprecated WP Server Stats plugin used. Subject to 45 req/min from ip-api.com's side."
+msgstr ""
+
+#: includes/pro/LocationProvider.php:93
+msgid "MaxMind GeoLite2 City Web Service"
+msgstr ""
+
+#: includes/pro/LocationProvider.php:94
+msgid "Requires a free MaxMind license key (Account ID + License Key, set below). Most accurate for ASN and ISP. Free tier: 1,000 lookups/day, far above what the 30-day cache uses."
+msgstr ""
+
+#: includes/pro/LocationProvider.php:110
+msgid "Auto-detect disabled"
+msgstr ""
+
+#. translators: %s: reverse-DNS hostname
+#: includes/pro/LocationProvider.php:353
+#, php-format
+msgid "%s (reverse DNS)"
+msgstr ""
+
+#: includes/pro/LocationProvider.php:484
+#: includes/pro/LocationProvider.php:489
+#: includes/pro/LocationProvider.php:493
+msgid "Unavailable"
+msgstr ""
+
+#: includes/pro/MemoryProvider.php:19
+#: includes/pro/ProFeatures.php:281
+msgid "Memory Usage"
+msgstr ""
+
+#: includes/pro/NetworkDashboard.php:33
+msgid "Version Info Network Overview"
+msgstr ""
+
+#: includes/pro/NetworkDashboard.php:53
+msgid "Version Info — Network Overview"
+msgstr ""
+
+#: includes/pro/NetworkDashboard.php:54
+msgid "Version information for all sites on this network."
+msgstr ""
+
+#. translators: %1$d: shown count, %2$d: total count
+#: includes/pro/NetworkDashboard.php:61
+#, php-format
+msgid "Showing the first %1$d of %2$d sites. Large networks are capped for performance."
+msgstr ""
+
+#: includes/pro/NetworkDashboard.php:71
+msgid "Site"
+msgstr ""
+
+#: includes/pro/NetworkDashboard.php:72
+msgid "URL"
+msgstr ""
+
+#: includes/pro/NetworkDashboard.php:73
+msgid "WP Version"
+msgstr ""
+
+#: includes/pro/NetworkDashboard.php:74
+msgid "PHP Version"
+msgstr ""
+
+#: includes/pro/NetworkDashboard.php:75
+msgid "MySQL Version"
+msgstr ""
+
+#: includes/pro/NetworkDashboard.php:76
+msgid "DB Size"
+msgstr ""
+
+#: includes/pro/NetworkDashboard.php:81
+msgid "No site data available."
+msgstr ""
+
+#: includes/pro/ProFeatures.php:253
+#: includes/SettingsPage.php:322
+#: includes/SettingsPage.php:501
+msgid "System Resources"
+msgstr ""
+
+#: includes/pro/ProFeatures.php:254
+msgid "Data refreshes automatically every 60 seconds via the WordPress Heartbeat API."
+msgstr ""
+
+#: includes/pro/ProFeatures.php:256
+msgid "System Resources docs"
+msgstr ""
+
+#: includes/pro/ProFeatures.php:266
+msgid "Current Load"
+msgstr ""
+
+#: includes/pro/ProFeatures.php:270
+msgid "Load Average (1 / 5 / 15 min)"
+msgstr ""
+
+#: includes/pro/ProFeatures.php:272
+msgid "CPU Cores"
+msgstr ""
+
+#: includes/pro/ProFeatures.php:276
+msgid "CPU load monitoring is not available on this server."
+msgstr ""
+
+#: includes/pro/ProFeatures.php:285
+msgid "System Memory"
+msgstr ""
+
+#. translators: %1$s: used memory, %2$s: total memory
+#: includes/pro/ProFeatures.php:292
+#, php-format
+msgid "%1$s used of %2$s total"
+msgstr ""
+
+#: includes/pro/ProFeatures.php:300
+msgid "PHP Memory Usage"
+msgstr ""
+
+#: includes/pro/ProFeatures.php:302
+msgid "PHP Peak Memory"
+msgstr ""
+
+#: includes/pro/ProFeatures.php:310
+msgid "Total Database Size"
+msgstr ""
+
+#: includes/pro/ProFeatures.php:312
+msgid "Data Size"
+msgstr ""
+
+#: includes/pro/ProFeatures.php:314
+msgid "Index Size"
+msgstr ""
+
+#: includes/pro/ProFeatures.php:316
+msgid "Tables"
+msgstr ""
+
+#: includes/pro/ProFeatures.php:319
+msgid "Scan Now"
+msgstr ""
+
+#: includes/pro/ProFeatures.php:328
+msgid "PHP Modules"
+msgstr ""
+
+#. translators: %d: count
+#: includes/pro/ProFeatures.php:333
+#, php-format
+msgid "%d loaded extension — click to expand"
+msgid_plural "%d loaded extensions — click to expand"
+msgstr[0] ""
+msgstr[1] ""
+
+#: includes/pro/ProFeatures.php:356
+msgid "Cache Maintenance"
+msgstr ""
+
+#: includes/pro/ProFeatures.php:357
+msgid "Wipe every Version Info transient and force a re-collection on the next page load. Useful after a host migration or hardware change."
+msgstr ""
+
+#: includes/pro/ProFeatures.php:360
+msgid "Purge VI Caches"
+msgstr ""
+
+#: includes/pro/ProFeatures.php:389
+msgid "Choose how the dashboard widget detects your server location. Pick a provider and the result is cached for 30 days, or disable auto-detect entirely."
+msgstr ""
+
+#: includes/pro/ProFeatures.php:391
+msgid "Server Location docs — providers, privacy, cache"
+msgstr ""
+
+#: includes/pro/ProFeatures.php:405
+msgid "Server Location Auto-Detect"
+msgstr ""
+
+#: includes/pro/ProFeatures.php:408
+msgid "Enable auto-detect (uses the provider selected below)"
+msgstr ""
+
+#: includes/pro/ProFeatures.php:409
+msgid "When off, the widget displays \"Auto-detect disabled\" and no outbound HTTP calls are made for location data."
+msgstr ""
+
+#: includes/pro/ProFeatures.php:414
+msgid "Location Provider"
+msgstr ""
+
+#: includes/pro/ProFeatures.php:422
+msgid "Compare all four providers + privacy notes"
+msgstr ""
+
+#: includes/pro/ProFeatures.php:426
+msgid "See the docs for what each provider returns and what data leaves your server."
+msgstr ""
+
+#: includes/pro/ProFeatures.php:433
+msgid "MaxMind License (Account ID:License Key)"
+msgstr ""
+
+#. translators: %s: maxmind sign-up link
+#: includes/pro/ProFeatures.php:438
+#, php-format
+msgid "Required for the MaxMind provider. Free account at %s. Format: \"Account ID:License Key\"."
+msgstr ""
+
+#: includes/pro/ProFeatures.php:446
+msgid "Refresh Cached Location"
+msgstr ""
+
+#: includes/pro/ProFeatures.php:448
+msgid "Detect now"
+msgstr ""
+
+#: includes/pro/ProFeatures.php:450
+msgid "Auto-detected results are cached for 30 days. Click \"Detect now\" to bust the cache and re-run the configured provider — useful after a host migration or when switching providers above."
+msgstr ""
+
+#: includes/pro/ProFeatures.php:491
+msgid "Detecting…"
+msgstr ""
+
+#: includes/pro/ProFeatures.php:502
+msgid "Detected: "
+msgstr ""
+
+#: includes/pro/ProFeatures.php:505
+#: includes/pro/ProFeatures.php:509
+msgid "Detection failed."
+msgstr ""
+
+#: includes/pro/ProFeatures.php:528
+#: includes/SettingsPage.php:511
+msgid "Environment Indicators"
+msgstr ""
+
+#: includes/pro/ProFeatures.php:530
+msgid "Environment Indicators docs"
+msgstr ""
+
+#: includes/pro/ProFeatures.php:536
+msgid "Current Environment"
+msgstr ""
+
+#: includes/pro/ProFeatures.php:542
+msgid "Detection Source"
+msgstr ""
+
+#: includes/pro/ProFeatures.php:546
+msgid "Admin Bar Badge"
+msgstr ""
+
+#: includes/pro/ProFeatures.php:550
+msgid "Show Environment Badge in Admin Bar"
+msgstr ""
+
+#: includes/pro/ProFeatures.php:554
+msgid "Highlight Admin Bar on Production"
+msgstr ""
+
+#: includes/pro/ProFeatures.php:558
+msgid "Adds a colored top border to the admin bar when the environment is Production (red), Staging (orange), or Development (green)."
+msgstr ""
+
+#. translators: %s: environment type
+#: includes/pro/ProFeatures.php:594
+#, php-format
+msgid "Environment: %s"
+msgstr ""
+
+#: includes/pro/ProFeatures.php:618
+#: includes/pro/ProFeatures.php:636
+msgid "Environment:"
+msgstr ""
+
+#: includes/pro/ProFeatures.php:622
+#: includes/pro/ProFeatures.php:709
+msgid "Database Size:"
+msgstr ""
+
+#. translators: 1: env label, 2: detection source
+#: includes/pro/ProFeatures.php:639
+#, php-format
+msgid "%1$s (source: %2$s)"
+msgstr ""
+
+#: includes/pro/ProFeatures.php:645
+msgid "Server Location:"
+msgstr ""
+
+#. translators: 1/2/3: load avg, 4: cores
+#: includes/pro/ProFeatures.php:658
+#, php-format
+msgid " · load %1$s / %2$s / %3$s · %4$d cores"
+msgstr ""
+
+#: includes/pro/ProFeatures.php:665
+msgid "CPU Load:"
+msgstr ""
+
+#. translators: 1: used, 2: total
+#: includes/pro/ProFeatures.php:673
+#: includes/pro/ProFeatures.php:792
+#, php-format
+msgid " (%1$s of %2$s)"
+msgstr ""
+
+#: includes/pro/ProFeatures.php:678
+msgid "Memory Usage:"
+msgstr ""
+
+#: includes/pro/ProFeatures.php:691
+msgid "PHP Peak:"
+msgstr ""
+
+#. translators: 1: total db size, 2: table count, 3: data, 4: index
+#: includes/pro/ProFeatures.php:702
+#, php-format
+msgid "%1$s (%2$d tables; data %3$s + index %4$s)"
+msgstr ""
+
+#: includes/pro/ProFeatures.php:747
+msgid "ago"
+msgstr ""
+
+#: includes/pro/ProFeatures.php:749
+msgid "Last Version Change:"
+msgstr ""
+
+#: includes/pro/ProFeatures.php:797
+msgid "Disk Usage:"
+msgstr ""
+
+#: includes/pro/ProFeatures.php:813
+msgid "Plugins:"
+msgstr ""
+
+#. translators: 1: active count, 2: total count, 3: update count, 4: updates noun
+#: includes/pro/ProFeatures.php:816
+#, php-format
+msgid "%1$d active / %2$d total · %3$d %4$s"
+msgstr ""
+
+#: includes/pro/ProFeatures.php:820
+#: includes/pro/ProFeatures.php:842
+msgid "update"
+msgid_plural "updates"
+msgstr[0] ""
+msgstr[1] ""
+
+#: includes/pro/ProFeatures.php:827
+msgid "Active Theme:"
+msgstr ""
+
+#: includes/pro/ProFeatures.php:836
+msgid "Themes:"
+msgstr ""
+
+#. translators: 1: total themes, 2: update count, 3: updates noun
+#: includes/pro/ProFeatures.php:839
+#, php-format
+msgid "%1$d installed · %2$d %3$s"
+msgstr ""
+
+#: includes/pro/ProFeatures.php:848
+msgid "Up to date"
+msgstr ""
+
+#. translators: %s: version
+#: includes/pro/ProFeatures.php:854
+#, php-format
+msgid "%s available"
+msgstr ""
+
+#: includes/pro/ProFeatures.php:862
+msgid "WordPress Core:"
+msgstr ""
+
+#: includes/pro/ProFeatures.php:884
+msgid "WP-Cron disabled (DISABLE_WP_CRON)"
+msgstr ""
+
+#: includes/pro/ProFeatures.php:886
+msgid "No scheduled events"
+msgstr ""
+
+#. translators: 1: overdue count, 2: noun, 3: time-ago string
+#: includes/pro/ProFeatures.php:890
+#, php-format
+msgid "%1$d %2$s overdue (oldest %3$s ago)"
+msgstr ""
+
+#: includes/pro/ProFeatures.php:892
+msgid "event"
+msgid_plural "events"
+msgstr[0] ""
+msgstr[1] ""
+
+#. translators: %s: time-until
+#: includes/pro/ProFeatures.php:898
+#, php-format
+msgid "next event in %s"
+msgstr ""
+
+#: includes/pro/ProFeatures.php:903
+msgid "Cron:"
+msgstr ""
+
+#. translators: %d: count
+#: includes/pro/ProFeatures.php:929
+#, php-format
+msgid "All %d checks passing"
+msgstr ""
+
+#. translators: 1: critical count, 2: warning count, 3: good count
+#: includes/pro/ProFeatures.php:935
+#, php-format
+msgid "%1$d critical · %2$d warning · %3$d good"
+msgstr ""
+
+#: includes/pro/ProFeatures.php:942
+msgid "Health Advisor:"
+msgstr ""
+
+#: includes/pro/ProFeatures.php:948
+msgid "PHP Limits:"
+msgstr ""
+
+#: includes/pro/ProFeatures.php:961
+msgid "HTTPS:"
+msgstr ""
+
+#: includes/pro/ProFeatures.php:962
+#: includes/SystemInfo.php:204
+msgid "Yes"
+msgstr ""
+
+#: includes/pro/ProFeatures.php:962
+#: includes/SystemInfo.php:204
+msgid "No"
+msgstr ""
+
+#. translators: %s: certificate expiry date
+#: includes/pro/ProFeatures.php:972
+#, php-format
+msgid "EXPIRED (%s)"
+msgstr ""
+
+#. translators: %1$s: number of days, %2$s: certificate expiry date
+#: includes/pro/ProFeatures.php:975
+#, php-format
+msgid "expires in %1$s days (%2$s)"
+msgstr ""
+
+#: includes/pro/ProFeatures.php:978
+msgid "SSL Certificate:"
+msgstr ""
+
+#: includes/pro/ProFeatures.php:990
+msgid "On"
+msgstr ""
+
+#: includes/pro/ProFeatures.php:990
+msgid "Off"
+msgstr ""
+
+#: includes/pro/ProFeatures.php:995
+msgid "WP_DEBUG:"
+msgstr ""
+
+#: includes/pro/ProFeatures.php:1001
+msgid "Uptime:"
+msgstr ""
+
+#: includes/pro/ProFeatures.php:1007
+msgid "Server OS:"
+msgstr ""
+
+#: includes/pro/ProFeatures.php:1011
+msgid "Hostname:"
+msgstr ""
+
+#: includes/pro/ProFeatures.php:1024
+msgid "Server Port:"
+msgstr ""
+
+#: includes/pro/ProFeatures.php:1031
+msgid "Document Root:"
+msgstr ""
+
+#: includes/pro/ProFeatures.php:1041
+msgid "DB Max Connections:"
+msgstr ""
+
+#: includes/pro/ProFeatures.php:1047
+msgid "DB Max Packet Size:"
+msgstr ""
+
+#: includes/pro/ProFeatures.php:1057
+msgid "PHP Modules:"
+msgstr ""
+
+#. translators: %d: count
+#: includes/pro/ProFeatures.php:1060
+#, php-format
+msgid "%d loaded"
+msgid_plural "%d loaded"
+msgstr[0] ""
+msgstr[1] ""
+
+#: includes/pro/ProFeatures.php:1069
+msgid "Internal only"
+msgstr ""
+
+#: includes/pro/ProFeatures.php:1078
+msgid "External (unknown backend)"
+msgstr ""
+
+#: includes/pro/ProFeatures.php:1083
+msgid "Object Cache:"
+msgstr ""
+
+#: includes/pro/ProFeatures.php:1091
+msgid "Timezone:"
+msgstr ""
+
+#: includes/pro/ProFeatures.php:1263
+msgid "Scanning..."
+msgstr ""
+
+#: includes/pro/ProFeatures.php:1275
+msgid "Done!"
+msgstr ""
+
+#: includes/pro/ProFeatures.php:1277
+#: includes/pro/ProFeatures.php:1281
+msgid "Error."
+msgstr ""
+
+#: includes/pro/ProFeatures.php:1356
+msgid "Purging…"
+msgstr ""
+
+#: includes/pro/ProFeatures.php:1362
+msgid "Purged "
+msgstr ""
+
+#: includes/pro/ProFeatures.php:1362
+msgid " caches."
+msgstr ""
+
+#: includes/pro/ProFeatures.php:1364
+#: includes/pro/ProFeatures.php:1368
+msgid "Purge failed."
+msgstr ""
+
+#: includes/pro/RoleVisibility.php:27
+#: includes/SettingsPage.php:329
+#: includes/SettingsPage.php:595
+msgid "Access Control"
+msgstr ""
+
+#: includes/pro/RoleVisibility.php:28
+msgid "Select which user roles can view version information in the admin bar, footer, and dashboard widget."
+msgstr ""
+
+#: includes/pro/RoleVisibility.php:30
+msgid "Access Control docs"
+msgstr ""
+
+#: includes/pro/RoleVisibility.php:39
+msgid "Allowed Roles"
+msgstr ""
+
+#: includes/pro/RoleVisibility.php:52
+msgid "always enabled"
+msgstr ""
+
+#: includes/pro/RoleVisibility.php:61
+msgid "Users with selected roles will see version info. Administrators always have access."
+msgstr ""
+
+#: includes/pro/SystemExport.php:35
+msgid "Security check failed."
+msgstr ""
+
+#: includes/pro/SystemExport.php:56
+#: includes/SettingsPage.php:558
+msgid "System Info Export"
+msgstr ""
+
+#: includes/pro/SystemExport.php:57
+msgid "Download a complete snapshot of your technical stack as a JSON file for support tickets or documentation."
+msgstr ""
+
+#: includes/pro/SystemExport.php:59
+msgid "System Export docs"
+msgstr ""
+
+#: includes/pro/SystemExport.php:70
+msgid "Download System Info (JSON)"
+msgstr ""
+
+#: includes/pro/SystemExport.php:73
+msgid "Preview"
+msgstr ""
+
+#: includes/pro/SystemExport.php:76
+msgid "Property"
+msgstr ""
+
+#: includes/pro/SystemExport.php:77
+#: includes/SystemInfo.php:208
+msgid "Value"
+msgstr ""
+
+#: includes/pro/VersionHistory.php:262
+#: includes/SettingsPage.php:325
+#: includes/SettingsPage.php:530
+msgid "Version History"
+msgstr ""
+
+#: includes/pro/VersionHistory.php:263
+msgid "A log of detected changes in WordPress, PHP, and MySQL versions."
+msgstr ""
+
+#: includes/pro/VersionHistory.php:265
+msgid "Version History docs"
+msgstr ""
+
+#: includes/pro/VersionHistory.php:271
+msgid "No version changes have been detected yet. Changes will appear here automatically when WordPress, PHP, or MySQL versions change."
+msgstr ""
+
+#: includes/pro/VersionHistory.php:278
+msgid "Component"
+msgstr ""
+
+#: includes/pro/VersionHistory.php:279
+msgid "Previous Version"
+msgstr ""
+
+#: includes/pro/VersionHistory.php:280
+msgid "New Version"
+msgstr ""
+
+#: includes/pro/VersionHistory.php:281
+msgid "Detected"
+msgstr ""
+
+#: includes/pro/WhiteLabel.php:254
+msgid "White Label Settings"
+msgstr ""
+
+#: includes/pro/WhiteLabel.php:255
+msgid "Rebrand the plugin with your own name and hide all default branding. The \"Hide Doc Links\" option below also suppresses every in-plugin link to docs.versioninfoplugin.com across all settings tabs, so client-facing dashboards never expose the underlying plugin's documentation domain."
+msgstr ""
+
+#: includes/pro/WhiteLabel.php:257
+msgid "White Label docs"
+msgstr ""
+
+#: includes/pro/WhiteLabel.php:267
+msgid "Custom Plugin Name"
+msgstr ""
+
+#: includes/pro/WhiteLabel.php:269
+msgid "Replaces \"Version Info\" throughout the dashboard. Leave blank to use the default."
+msgstr ""
+
+#: includes/pro/WhiteLabel.php:272
+msgid "Custom Author Name"
+msgstr ""
+
+#: includes/pro/WhiteLabel.php:274
+msgid "Replaces \"Gaucho Plugins\" attribution. Leave blank to use the default."
+msgstr ""
+
+#: includes/pro/WhiteLabel.php:277
+msgid "Hide Freemius Branding"
+msgstr ""
+
+#: includes/pro/WhiteLabel.php:281
+msgid "Hides the Account, Contact Us, Support, and Pricing submenus added by Freemius."
+msgstr ""
+
+#: includes/pro/WhiteLabel.php:286
+msgid "Hide Doc Links"
+msgstr ""
+
+#: includes/pro/WhiteLabel.php:290
+msgid "Suppresses every in-plugin link to docs.versioninfoplugin.com across all settings tabs. Use this so client-facing dashboards never expose the underlying plugin documentation site."
+msgstr ""
+
+#: includes/pro/WhiteLabel.php:301
+msgid "Lock Tab to Current User"
+msgstr ""
+
+#. translators: %s: current username
+#: includes/pro/WhiteLabel.php:311
+#, php-format
+msgid "Hide this tab from other administrators — only %s will see it."
+msgstr ""
+
+#: includes/pro/WhiteLabel.php:318
+msgid "The White Label tab is currently locked to your account. Other administrators do not see this tab and cannot change white-label values. Uncheck and save to release."
+msgstr ""
+
+#: includes/pro/WhiteLabel.php:320
+msgid "When enabled, only your account can see the White Label tab and edit these values. If your account is deleted the lock automatically releases."
+msgstr ""
+
+#: includes/SettingsPage.php:30
+#: includes/SettingsPage.php:353
+msgid "Version Info Settings"
+msgstr ""
+
+#: includes/SettingsPage.php:321
+msgid "General"
+msgstr ""
+
+#: includes/SettingsPage.php:327
+msgid "System Export"
+msgstr ""
+
+#: includes/SettingsPage.php:328
+#: includes/SettingsPage.php:584
+msgid "White Label"
+msgstr ""
+
+#: includes/SettingsPage.php:331
+msgid "Error Log"
+msgstr ""
+
+#: includes/SettingsPage.php:418
+msgid "Setup & display-locations docs"
+msgstr ""
+
+#: includes/SettingsPage.php:427
+msgid "Show Version Info in Admin Bar"
+msgstr ""
+
+#: includes/SettingsPage.php:435
+msgid "Show Version Info as Dashboard Widget"
+msgstr ""
+
+#: includes/SettingsPage.php:444
+msgid "Show Live System Resources in Dashboard Widget"
+msgstr ""
+
+#: includes/SettingsPage.php:454
+msgid "Adds live CPU, memory, database, and system details to the Version Info dashboard widget."
+msgstr ""
+
+#: includes/SettingsPage.php:456
+msgid "PRO feature."
+msgstr ""
+
+#: includes/SettingsPage.php:457
+#: includes/SettingsPage.php:636
+msgid "Upgrade to PRO"
+msgstr ""
+
+#: includes/SettingsPage.php:463
+msgid "Show Version Info in Footer"
+msgstr ""
+
+#: includes/SettingsPage.php:470
+msgid "Show Memory & Server IP"
+msgstr ""
+
+#: includes/SettingsPage.php:474
+msgid "Adds the PHP memory limit, live usage %, and server IP to the footer, admin bar, and dashboard widget."
+msgstr ""
+
+#: includes/SettingsPage.php:502
+msgid "Monitor real-time CPU load and memory usage directly from your WordPress dashboard."
+msgstr ""
+
+#: includes/SettingsPage.php:504
+msgid "CPU load percentage with visual bar"
+msgstr ""
+
+#: includes/SettingsPage.php:505
+msgid "RAM usage percentage with visual bar"
+msgstr ""
+
+#: includes/SettingsPage.php:506
+msgid "Database size tracking (data + index)"
+msgstr ""
+
+#: includes/SettingsPage.php:507
+msgid "Live updates via WordPress Heartbeat API"
+msgstr ""
+
+#: includes/SettingsPage.php:512
+msgid "Instantly identify your environment type with a color-coded badge in the Admin Bar."
+msgstr ""
+
+#: includes/SettingsPage.php:514
+msgid "Auto-detects Production, Staging, Development, and Local"
+msgstr ""
+
+#: includes/SettingsPage.php:515
+msgid "Supports WP_ENVIRONMENT_TYPE, Bedrock, Kinsta, WP Engine, and more"
+msgstr ""
+
+#: includes/SettingsPage.php:516
+msgid "Color-coded Admin Bar badge"
+msgstr ""
+
+#: includes/SettingsPage.php:521
+msgid "Auto-detect where your server lives, with a privacy-first chooser. Anonymous default that logs nothing — or pick your own provider."
+msgstr ""
+
+#: includes/SettingsPage.php:523
+msgid "Four selectable providers (Version Info anonymous, Cloudflare trace, ip-api, MaxMind)"
+msgstr ""
+
+#: includes/SettingsPage.php:524
+msgid "Enable/disable auto-detect entirely with one checkbox"
+msgstr ""
+
+#: includes/SettingsPage.php:525
+msgid "30-day transient cache + one-click Detect Now"
+msgstr ""
+
+#: includes/SettingsPage.php:526
+msgid "Reverse-DNS fallback when providers are unreachable"
+msgstr ""
+
+#: includes/SettingsPage.php:531
+msgid "Track changes in your WordPress, PHP, and MySQL versions over time."
+msgstr ""
+
+#: includes/SettingsPage.php:533
+msgid "Automatic detection of version changes"
+msgstr ""
+
+#: includes/SettingsPage.php:534
+msgid "Hooks into WordPress core, plugin, and theme update process"
+msgstr ""
+
+#: includes/SettingsPage.php:535
+msgid "Sortable history table with timestamps"
+msgstr ""
+
+#: includes/SettingsPage.php:540
+msgid "Predictive alerts for end-of-life software and critical server issues."
+msgstr ""
+
+#: includes/SettingsPage.php:542
+msgid "PHP end-of-life date tracking"
+msgstr ""
+
+#: includes/SettingsPage.php:543
+msgid "MySQL end-of-life date tracking"
+msgstr ""
+
+#: includes/SettingsPage.php:544
+msgid "SSL certificate expiry monitoring"
+msgstr ""
+
+#: includes/SettingsPage.php:545
+msgid "Integrates with WordPress Site Health screen"
+msgstr ""
+
+#: includes/SettingsPage.php:550
+msgid "Receive priority email notifications whenever a version change is detected on your site."
+msgstr ""
+
+#: includes/SettingsPage.php:552
+msgid "Alerts for WordPress, PHP, and MySQL version changes"
+msgstr ""
+
+#: includes/SettingsPage.php:553
+msgid "Configurable recipient list"
+msgstr ""
+
+#: includes/SettingsPage.php:554
+msgid "Per-component alert toggles"
+msgstr ""
+
+#: includes/SettingsPage.php:559
+msgid "Download a complete snapshot of your technical stack as a JSON file."
+msgstr ""
+
+#: includes/SettingsPage.php:561
+msgid "One-click JSON download of all system info"
+msgstr ""
+
+#: includes/SettingsPage.php:562
+msgid "Includes PHP extensions, active plugins, and theme data"
+msgstr ""
+
+#: includes/SettingsPage.php:563
+msgid "Ideal for support ticket attachments"
+msgstr ""
+
+#: includes/SettingsPage.php:585
+msgid "Fully rebrand the plugin with your own name and remove all Gaucho Plugins branding."
+msgstr ""
+
+#: includes/SettingsPage.php:587
+msgid "Custom plugin name throughout the dashboard"
+msgstr ""
+
+#: includes/SettingsPage.php:588
+msgid "Custom author name attribution"
+msgstr ""
+
+#: includes/SettingsPage.php:589
+msgid "Hide Freemius account and support menu items"
+msgstr ""
+
+#: includes/SettingsPage.php:590
+msgid "Hide in-plugin links to docs.versioninfoplugin.com"
+msgstr ""
+
+#: includes/SettingsPage.php:591
+msgid "Lock the White Label tab to a single administrator"
+msgstr ""
+
+#: includes/SettingsPage.php:596
+msgid "Control which WordPress user roles can see version information across your site."
+msgstr ""
+
+#: includes/SettingsPage.php:598
+msgid "Per-role visibility toggles"
+msgstr ""
+
+#: includes/SettingsPage.php:599
+msgid "Applies to admin bar, footer, and dashboard widget"
+msgstr ""
+
+#: includes/SettingsPage.php:600
+msgid "Default restricted to administrators"
+msgstr ""
+
+#: includes/SettingsPage.php:605
+msgid "View and download your PHP error log directly from the WordPress dashboard."
+msgstr ""
+
+#: includes/SettingsPage.php:607
+msgid "Tail last 100 lines without loading full log into memory"
+msgstr ""
+
+#: includes/SettingsPage.php:608
+msgid "Sensitive file paths automatically masked"
+msgstr ""
+
+#: includes/SettingsPage.php:609
+msgid "Download full log as ZIP for offline analysis"
+msgstr ""
+
+#: includes/SettingsPage.php:630
+msgid "This is an Agency feature."
+msgstr ""
+
+#: includes/SettingsPage.php:631
+msgid "Upgrade to the Agency plan to unlock this feature."
+msgstr ""
+
+#: includes/SettingsPage.php:632
+msgid "Upgrade to Agency"
+msgstr ""
+
+#: includes/SettingsPage.php:634
+msgid "This is a PRO feature."
+msgstr ""
+
+#: includes/SettingsPage.php:635
+msgid "Upgrade to Version Info PRO to unlock this feature."
+msgstr ""
+
+#. translators: %s: current PHP memory usage
+#: includes/SystemInfo.php:140
+#, php-format
+msgid "%s (no limit)"
+msgstr ""
+
+#. translators: %1$s: current PHP memory usage, %2$s: PHP memory limit, %3$s: percentage of the limit used
+#: includes/SystemInfo.php:144
+#, php-format
+msgid "%1$s of %2$s (%3$s%%)"
+msgstr ""
+
+#: includes/SystemInfo.php:161
+msgid "PHP past EOL"
+msgstr ""
+
+#. translators: %s: number of days until the running PHP version reaches end of life
+#: includes/SystemInfo.php:165
+#, php-format
+msgid "PHP EOL in %s days"
+msgstr ""
+
+#: includes/SystemInfo.php:200
+msgid "Web Server"
+msgstr ""
+
+#: includes/SystemInfo.php:201
+msgid "PHP Memory Limit"
+msgstr ""
+
+#: includes/SystemInfo.php:201
+msgid "Unlimited"
+msgstr ""
+
+#: includes/SystemInfo.php:202
+msgid "WP Memory Limit"
+msgstr ""
+
+#: includes/SystemInfo.php:203
+msgid "Locale"
+msgstr ""
+
+#: includes/SystemInfo.php:204
+msgid "Multisite"
+msgstr ""
+
+#: includes/SystemInfo.php:208
+msgid "Item"
 msgstr ""

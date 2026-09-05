@@ -1,14 +1,14 @@
 === Version Info - Server Health Monitor, PHP & MySQL Version Display, Environment Indicators ===
 Contributors: gauchoplugins, brandonfire, freemius
 Tags: server info, php version, site health, system resources, server location
-Stable tag: 2.0.3
+Stable tag: 2.1.0
 Requires at least: 4.7
-Tested up to: 7.0
+Tested up to: 7.1
 Requires PHP: 5.6
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
-Live CPU/RAM/disk monitoring with sparklines, server location auto-detect, uptime, environment indicators, version history, PHP/MySQL EOL alerts.
+Free memory & server IP display, PHP EOL countdown, live CPU/RAM sparklines, server location, environment indicators, SSL expiry & EOL alerts.
 
 == Description ==
 
@@ -34,6 +34,9 @@ Most server info plugins show you a wall of data you don't need. Version Info is
 These features will always be free. No bait-and-switch.
 
 * 🛠️ **Admin Footer Display** — See WordPress, PHP, MySQL, and Web Server versions at the bottom of every admin page. Includes a one-click update link when a new WP version is available.
+* 🧠 **Memory & Server IP** *(new in 2.1.0)* — Your PHP memory limit, live usage percentage, and server IP right in the footer, admin bar, and dashboard widget. The #1 hosting-support question, answered at a glance.
+* ⏳ **PHP EOL Countdown** *(new in 2.1.0)* — See exactly how many days your PHP version has left before end-of-life, and a clear flag once it's past EOL.
+* 📋 **Copy as Markdown** *(new in 2.1.0)* — One click copies your entire stack as a clean Markdown table — paste it straight into support tickets, GitHub issues, or wp.org forum posts.
 * 🚦 **WP-Admin Bar Nodes** — Pin your version stack to the admin bar for instant visibility while navigating between pages, posts, and settings.
 * 📊 **Dashboard Widget** — A dedicated "At a Glance" style widget showing your complete technical stack. Enable it via Screen Options.
 * 🔄 **Core Update Alerts** — Automatically compares your WP version with the latest available and shows an update link right in the footer.
@@ -104,7 +107,15 @@ A persistent timeline of every shift in your WordPress core, PHP, MySQL, plugin,
 
 🛡️ **Health Advisor**
 
-Proactive alerts that predict problems before they happen. Checks your PHP and MySQL versions against known End-of-Life dates and flags critical security risks. Integrates with the native WordPress Site Health screen.
+Proactive alerts that predict problems before they happen. Checks your PHP and MySQL versions against known End-of-Life dates, grades your PHP against WordPress core's official support matrix (7.4 minimum / 8.3 recommended / 8.5 fully supported as of WP 7.0), and flags critical security risks. Integrates with the native WordPress Site Health screen.
+
+🔒 **SSL Certificate Expiry Alerts** *(new in 2.1.0)*
+
+Never let a certificate lapse again. The Health Advisor checks your site's SSL certificate and warns at 21 days, escalating to critical at 7 days or expiry. Renewal-friendly thresholds — no false alarms on healthy Let's Encrypt auto-renewal cycles.
+
+📧 **System Change Email Alerts** *(moved from Agency to PRO in 2.1.0)*
+
+Get notified the *instant* something changes — PHP version flips, WP core updates, any plugin or theme version shift. Configurable recipient list, per-component toggles, sensible defaults.
 
 📤 **JSON System Info Export**
 
@@ -132,10 +143,6 @@ Keep client dashboards clean. A checkbox matrix controls exactly which WordPress
 🌐 **Multisite Network Dashboard**
 
 A single page under **Network Admin → Settings** showing WP / PHP / MySQL versions and database size for every site on the network. Cached, capped at 100 sites for performance.
-
-📧 **System Change Email Alerts**
-
-Get notified the *instant* something changes — PHP version flips, WP core updates, any plugin or theme version shift. Configurable recipient list, per-component toggles, sensible defaults.
 
 🔍 **PHP Error Log Dashboard**
 
@@ -255,8 +262,8 @@ Version Info is intentionally backwards-compatible. Because the plugin's whole p
 Navigate to **Settings > Version Info** to:
 
 * Toggle display in the Admin Bar, Dashboard Widget, and Footer
-* Access PRO tabs for System Resources, Environment, Version History, Health Advisor, and System Export
-* Access Agency tabs for White Label, Access Control, Email Alerts, and Error Log
+* Access PRO tabs for System Resources, Environment, Version History, Health Advisor, System Export, and Email Alerts
+* Access Agency tabs for White Label, Access Control, and Error Log
 
 For detailed setup guides, visit the **[Version Info documentation](https://docs.versioninfoplugin.com/ "Version Info documentation")**.
 
@@ -296,7 +303,7 @@ By default, only administrators can see version data. With PRO, you get a **Role
 
 = How do email alerts work? =
 
-The Agency plan monitors for version changes on every `admin_init` and via `upgrader_process_complete`. When a change is detected (e.g., PHP 8.1 → 8.2, or a plugin update), it sends a plain-text email to your configured recipients listing what changed, the old version, the new version, and the timestamp.
+The PRO plan (previously Agency — existing Agency customers keep it) monitors for version changes on every `admin_init` and via `upgrader_process_complete`. When a change is detected (e.g., PHP 8.1 → 8.2, or a plugin update), it sends a plain-text email to your configured recipients listing what changed, the old version, the new version, and the timestamp.
 
 = Is this plugin developer-friendly? =
 
@@ -327,78 +334,21 @@ Free users can use the [WordPress.org support forum](https://wordpress.org/suppo
 
 == Changelog ==
 
-= 2.0.3 (2026-05-27) =
+= 2.1.0 (2026-08-19) =
 
-* **Fix:** Saving the Server Location tab no longer disables the dashboard widget (or the admin-bar / footer / Show Live System Resources toggles). The location options now live in their own `version_info_location_group` settings group instead of sharing `version_info_general_group` with the General-tab checkboxes — previously, saving on Server Location would clobber the General-tab options to false because unchecked checkboxes aren't in `$_POST`. Reported by Steve Guccione — thanks!
+* Added: Memory usage and server IP in the admin footer, admin bar and dashboard widget.
+* Added: PHP end-of-life countdown, and a Copy as Markdown button for support tickets.
+* Added (PRO): SSL certificate expiry warnings in Health Advisor and Site Health.
+* Improved (PRO): System Change Email Alerts is now included in PRO, not just Agency.
+* Fixed: Agency trial users now see their Agency tabs unlocked.
+* Compatibility: Tested up to WordPress 7.1. Updated Freemius SDK.
 
-= 2.0.2 (2026-05-26) =
+See changelog.txt for the full version history.
 
-* **PRO:** New General-settings toggle **"Show Live System Resources in Dashboard Widget"** enriches the WP admin dashboard widget with the full collected dataset — CPU load with bar + sparkline + load avg + cores, system memory with bar + sparkline + used/total, PHP memory + peak, disk usage with bar, database size with data/index split + table count, environment + detection source, **server location**, server OS + hostname + IP, **server uptime**, plugin/theme/core update availability, cron next-event/overdue, Health Advisor critical/warning/good summary, last detected version change, PHP runtime limits, HTTPS, WP_DEBUG + debug.log size, object-cache backend, WP + PHP timezones. (Driven by direct customer feedback.)
-* **PRO:** CPU and Memory rows now render a compact inline-SVG **sparkline** alongside the percent bar — a rolling 30-sample history (~7.5 min at the dashboard's 15s Heartbeat cadence). Sparkline stroke recolors green/orange/red on the same 70%/90% thresholds as the bar.
-* **PRO:** New **Server Location** row in the widget. Resolution order: 30-day transient cache → configured provider lookup → reverse-DNS fallback → graceful "Unknown". A "Detect now" button on the Server Location tab busts the cache and re-runs the lookup.
-* **PRO:** Server OS, Hostname, Server IP, **Server Port**, **Document Root** (masked through `[ABSPATH]`), **DB Max Connections**, **DB Max Allowed Packet**, and Server Uptime rows. Closes the parity gap with the abandoned `wp-server-stats` plugin (last released 2017) without inheriting its `shell_exec()` dependency.
-* **PRO:** Server Location now offers **four selectable providers** with an enable/disable checkbox: **Version Info Geolocation (anonymous)** (default — our own Cloudflare Worker at `geo.versioninfoplugin.com`, logs nothing, returns city/region/country/postal/timezone/lat-long/ASN/datacenter), **Cloudflare cdn-cgi/trace** (country-only, free, anonymous), **ip-api.com** (legacy), and **MaxMind GeoLite2 City Web Service** (license-key required). See [the docs](https://docs.versioninfoplugin.com/pro-features-server-location/) for trade-offs.
-* **PRO:** System Resources tab gains a collapsible **PHP Modules** list and a one-click **Purge VI Caches** button.
-* **PRO:** CPU, memory, and disk rows in the dashboard widget display compact color-coded percent bars matching the System Resources tab. CPU and memory bars redraw live on every WordPress Heartbeat tick — no page reload required.
-* **PRO:** Aggregate widget extras cached for 5 minutes behind a transient (filterable via `version_info_widget_extras_ttl`) so the widget stays snappy.
-* Settings → General now dynamically hides the "Show Live System Resources in Dashboard Widget" row until the parent "Show Version Info as Dashboard Widget" toggle is enabled — keeps the form uncluttered until the option is meaningful.
-* **Agency:** New **"Lock Tab to Current User"** checkbox on the White Label tab. When enabled the White Label tab is hidden from every other administrator and direct POST writes to white-label options are blocked from non-owners. The lock auto-releases if the owner's account is deleted, and also self-heals on load if the recorded owner ID no longer corresponds to a real user.
-* **Agency:** New **"Hide Doc Links"** checkbox on the White Label tab. When enabled, in-plugin links to `docs.versioninfoplugin.com` are suppressed across every settings tab so client-facing dashboards never expose the underlying plugin's documentation domain.
-* **New:** Inline doc links on every settings tab pointing at the matching `docs.versioninfoplugin.com` page for the feature being configured.
-
-= 2.0.1 (2026-05-17) =
-
-* **Backwards compatibility:** lowered minimum PHP to **5.6** and minimum WordPress to **4.7**. The previous 2.0.0 minimums (PHP 8.1 / WP 5.5) were inappropriate for a plugin whose audience is by definition running older environments.
-* Refactored the codebase to remove PHP 7.0+/7.1+/7.4+/8.0+/8.1+ syntax: `declare(strict_types=1)`, scalar parameter typehints, return type declarations, null coalescing `??`, `Throwable`, typed properties, arrow functions, `match` expressions, `str_starts_with()`, `mixed` parameter type, nullable return types (`?array`, `?string`), `void` return declarations, `private const`, and `array_is_list()`.
-* No functionality removed — every PRO/Agency feature still works exactly as in 2.0.0.
-* Health Advisor's "PHP minimum version" check now flags pre-7.4 as a recommendation (since the wider ecosystem considers 7.4 the active-support floor), rather than claiming the plugin itself requires 8.1.
-* Added EOL data for PHP 5.6, 7.0, 7.1, 7.2, 7.3 and MySQL 5.5 so legacy hosts get accurate advice from Health Advisor.
-* Feature-detect `wp_date()` (WP 5.3+) and `wp_timezone_string()` (WP 5.3+) so the plugin degrades gracefully on WP 4.7+.
-* Confirmed compatibility with WordPress 7.0.
-
-= 2.0.0 =
-
-**🚀 MAJOR RELEASE: Complete architecture refactor with PRO + Agency feature suite.**
-
-* **NEW:** Modular Provider-based detection architecture with PSR-4 autoloading
-* **NEW:** Freemius SDK integration for PRO and Agency licensing
-* **NEW:** Tabbed settings page (General, System Resources, Environment, Version History, Health Advisor, System Export, White Label, Access Control, Email Alerts, Error Log)
-* **NEW:** Grayed-out PRO/Agency feature previews with upgrade prompts for free users
-* **PRO:** Real-time CPU & RAM monitoring via WordPress Heartbeat API
-* **PRO:** Database Size tracking with 12-hour cache and AJAX "Scan Now" button
-* **PRO:** Smart Environment Indicators with color-coded admin bar badges and optional admin bar border highlight
-* **PRO:** Audit Log of Version History — tracks core, plugin, and theme updates via upgrader_process_complete
-* **PRO:** Health Advisor Notifications — PHP/MySQL EOL checks integrated with WordPress Site Health
-* **PRO:** JSON System Info Export — one-click download of complete tech stack
-* **AGENCY:** Full White-Labeling with all_plugins filter for Plugins list rebranding
-* **AGENCY:** Role-Based Admin Visibility with per-role checkbox matrix
-* **AGENCY:** Multi-Site Network Dashboard under Network Admin > Settings
-* **AGENCY:** System Change Email Alerts via wp_mail with configurable recipients
-* **AGENCY:** PHP Error Log Dashboard with fseek tail reading and ZIP download
-* **TECH:** Minimum PHP raised to 8.1 with strict typing throughout
-* **TECH:** Minimum WordPress raised to 5.5
-* **TECH:** Hook-first architecture with filters and actions on every data point
-
-= 1.3.3 =
-
-* Verified WordPress 6.9 compatibility.
-
-= 1.3.2 =
-
-* Added settings for displaying the version info on WP-Admin bar and dashboard widget.
-* Added namespace, sanitization, and other security improvements.
-* Prepared plugin strings for translation.
-* Translations added for 13 most common WordPress languages.
-
-= 1.3.1 =
-
-* Updated compatibility details.
-* Changed to GPL.
-
-= 1.3.0 =
-
-Plugin transferred to new owner, @gauchoplugins.
 == Upgrade Notice ==
+
+= 2.1.0 =
+Memory usage, server IP, PHP EOL countdown, and Copy-as-Markdown are now FREE. PRO gains SSL certificate expiry alerts and the WP 7.0 PHP support matrix; Email Alerts move from Agency to PRO (existing Agency customers keep everything). Safe upgrade; PHP 5.6+/WP 4.7+ unchanged.
 
 = 2.0.1 =
 Backwards-compatibility release. Minimum PHP lowered from 8.1 to **5.6**; minimum WordPress lowered from 5.5 to **4.7**. No features removed — Version Info is a diagnostic plugin, so it now actually installs on the legacy environments it was built to diagnose. Safe upgrade for anyone on 2.0.0.

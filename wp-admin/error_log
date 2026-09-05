@@ -9,3 +9,37 @@
 [17-Jul-2026 20:39:49 UTC] PHP Warning:  Undefined variable $qsid in /home/nickvnxf/wp-fse-website-nickhiebert.com/wp-content/plugins/child-theme-configurator/includes/classes/CSS.php on line 967
 [17-Jul-2026 20:39:49 UTC] PHP Warning:  Undefined variable $qsid in /home/nickvnxf/wp-fse-website-nickhiebert.com/wp-content/plugins/child-theme-configurator/includes/classes/CSS.php on line 968
 [17-Jul-2026 20:39:49 UTC] PHP Warning:  Undefined variable $qsid in /home/nickvnxf/wp-fse-website-nickhiebert.com/wp-content/plugins/child-theme-configurator/includes/classes/CSS.php on line 971
+[07-Aug-2026 04:07:00 UTC] PHP Fatal error:  Uncaught Error: Class "WP_HTML_Tag_Processor" not found in /home/nickvnxf/wp-fse-website-nickhiebert.com/wp-includes/kses.php:1627
+Stack trace:
+#0 /home/nickvnxf/wp-fse-website-nickhiebert.com/wp-includes/kses.php(1455): wp_kses_hair()
+#1 /home/nickvnxf/wp-fse-website-nickhiebert.com/wp-includes/kses.php(1405): wp_kses_attr()
+#2 /home/nickvnxf/wp-fse-website-nickhiebert.com/wp-includes/kses.php(1282): wp_kses_split2()
+#3 [internal function]: _wp_kses_split_callback()
+#4 /home/nickvnxf/wp-fse-website-nickhiebert.com/wp-includes/kses.php(1212): preg_replace_callback()
+#5 /home/nickvnxf/wp-fse-website-nickhiebert.com/wp-includes/kses.php(967): wp_kses_split()
+#6 /home/nickvnxf/wp-fse-website-nickhiebert.com/wp-includes/kses.php(2423): wp_kses()
+#7 /home/nickvnxf/wp-fse-website-nickhiebert.com/wp-content/plugins/litespeed-cache/src/admin-display.cls.php(573): wp_kses_post()
+#8 /home/nickvnxf/wp-fse-website-nickhiebert.com/wp-content/plugins/litespeed-cache/src/admin-display.cls.php(869): LiteSpeed\Admin_Display::build_notice()
+#9 /home/nickvnxf/wp-fse-website-nickhiebert.com/wp-content/plugins/litespeed-cache/src/file.cls.php(113): LiteSpeed\Admin_Display::dismiss_pin_by_content()
+#10 /home/nickvnxf/wp-fse-website-nickhiebert.com/wp-content/plugins/litespeed-cache/src/file.cls.php(257): LiteSpeed\File::ensure_static_protection()
+#11 /home/nickvnxf/wp-fse-website-nickhiebert.com/wp-content/plugins/litespeed-cache/src/cloud-request.trait.php(319): LiteSpeed\File::save()
+#12 /home/nickvnxf/wp-fse-website-nickhiebert.com/wp-content/plugins/litespeed-cache/src/cloud-request.trait.php(261): LiteSpeed\Cloud->_post()
+#13 /home/nickvnxf/wp-fse-website-nickhiebert.com/wp-content/plugins/litespeed-cache/src/cloud-misc.trait.php(133): LiteSpeed\Cloud::post()
+#14 /home/nickvnxf/wp-fse-website-nickhiebert.com/wp-content/plugins/litespeed-cache/src/activation.cls.php(141): LiteSpeed\Cloud::version_check()
+#15 /home/nickvnxf/wp-fse-website-nickhiebert.com/wp-includes/class-wp-hook.php(341): LiteSpeed\Activation::uninstall_litespeed_cache()
+#16 /home/nickvnxf/wp-fse-website-nickhiebert.com/wp-includes/class-wp-hook.php(365): WP_Hook->apply_filters()
+#17 /home/nickvnxf/wp-fse-website-nickhiebert.com/wp-includes/plugin.php(522): WP_Hook->do_action()
+#18 /home/nickvnxf/wp-fse-website-nickhiebert.com/wp-admin/includes/plugin.php(1351): do_action()
+#19 /home/nickvnxf/wp-fse-website-nickhiebert.com/wp-admin/includes/plugin.php(970): uninstall_plugin()
+#20 /usr/local/lsws/add-ons/webcachemgr/src/WpWrapper/WpFuncs.php(186): delete_plugins()
+#21 /usr/local/lsws/add-ons/webcachemgr/src/WPCaller.php(1108): Lsc\Wp\WpWrapper\WpFuncs::deletePlugins()
+#22 /usr/local/lsws/add-ons/webcachemgr/src/WPCaller.php(1143): Lsc\Wp\WPCaller->deactivate_lscwp()
+#23 /usr/local/lsws/add-ons/webcachemgr/src/WPCaller.php(996): Lsc\Wp\WPCaller->disable_lscwp()
+#24 /usr/local/lsws/add-ons/webcachemgr/src/WPCaller.php(903): Lsc\Wp\WPCaller->performDisable()
+#25 /usr/local/lsws/add-ons/webcachemgr/src/WPCaller.php(928): Lsc\Wp\WPCaller->disable()
+#26 /usr/local/lsws/add-ons/webcachemgr/src/UserCommand.php(909): Lsc\Wp\WPCaller->massDisable()
+#27 /usr/local/lsws/add-ons/webcachemgr/src/UserCommand.php(1089): Lsc\Wp\UserCommand->runAsUser()
+#28 /usr/local/lsws/add-ons/webcachemgr/src/UserCommand.php(1101): Lsc\Wp\UserCommand::run()
+#29 {main}
+  thrown in /home/nickvnxf/wp-fse-website-nickhiebert.com/wp-includes/kses.php on line 1627
+[04-Sep-2026 22:47:01 UTC] PHP Warning:  Undefined array key 3 in /home/nickvnxf/wp-fse-website-nickhiebert.com/wp-content/plugins/child-theme-configurator/includes/forms/main.php on line 9

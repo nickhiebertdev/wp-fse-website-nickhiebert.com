@@ -1,0 +1,93 @@
+<?php
+/**
+ * Uninstall the WPVibe plugin (slug "vibe-ai" on WordPress.org).
+ *
+ * Removes all plugin options, transients, and leftover draft/backup theme
+ * directories on uninstall.
+ *
+ * @package WPVibe
+ */
+
+defined( 'WP_UNINSTALL_PLUGIN' ) || exit;
+
+// Remove plugin options.
+delete_option( 'wpvibe_draft_theme' );
+delete_option( 'wpvibe_draft_source' );
+delete_option( 'wpvibe_preview_token' );
+delete_option( 'wpvibe_preview_token_issued' );
+delete_option( 'wpvibe_last_active' );
+delete_option( 'wpvibe_installed_at' );
+delete_option( 'wpvibe_review_eligible_since' );
+delete_option( 'wpvibe_review_notice_status' );
+delete_option( 'wpvibe_audit_log_schema' );
+delete_option( 'wpvibe_op_receipts_schema' );
+delete_option( 'wpvibe_recent_activity' );
+delete_option( 'wpvibe_hide_from_admins' );
+
+// Drop our auto-update enrollment (white label adds it) now that the plugin is gone.
+$wpvibe_auto = get_option( 'auto_update_plugins' );
+if ( is_array( $wpvibe_auto ) && in_array( 'vibe-ai/vibe-ai.php', $wpvibe_auto, true ) ) {
+	update_option( 'auto_update_plugins', array_values( array_diff( $wpvibe_auto, array( 'vibe-ai/vibe-ai.php' ) ) ) );
+}
+
+// Drop the audit log table created by class-wpvibe-audit-log.php.
+global $wpdb;
+$audit_table = $wpdb->prefix . 'wpvibe_audit_log';
+// phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching, WordPress.DB.DirectDatabaseQuery.SchemaChange, WordPress.DB.PreparedSQL.InterpolatedNotPrepared
+$wpdb->query( "DROP TABLE IF EXISTS {$audit_table}" );
+
+// Drop the op-receipts table created by class-wpvibe-op-receipts.php.
+$receipts_table = $wpdb->prefix . 'wpvibe_op_receipts';
+// phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching, WordPress.DB.DirectDatabaseQuery.SchemaChange, WordPress.DB.PreparedSQL.InterpolatedNotPrepared
+$wpdb->query( "DROP TABLE IF EXISTS {$receipts_table}" );
+
+// Remove transients.
+delete_transient( 'wpvibe_last_change' );
+delete_transient( 'wpvibe_activation_redirect' );
+delete_transient( 'wpvibe_widget_feed' );
+delete_transient( 'wpvibe_widget_feed_error' );
+
+// Remove any leftover draft / backup theme directories on disk.
+if ( function_exists( 'get_theme_root' ) ) {
+	$theme_root = get_theme_root();
+	$suffixes   = array( '-wpvibe-draft', '-wpvibe-backup' );
+
+	if ( is_dir( $theme_root ) ) {
+		$entries = @scandir( $theme_root );
+		if ( is_array( $entries ) ) {
+			foreach ( $entries as $entry ) {
+				if ( '.' === $entry || '..' === $entry ) {
+					continue;
+				}
+				foreach ( $suffixes as $suffix ) {
+					if ( substr( $entry, -strlen( $suffix ) ) === $suffix ) {
+						$path = $theme_root . '/' . $entry;
+						if ( is_dir( $path ) ) {
+							// Defensive: ensure we never step outside get_theme_root().
+							$real_root = realpath( $theme_root );
+							$real_path = realpath( $path );
+							if ( $real_root && $real_path && 0 === strpos( $real_path, $real_root ) ) {
+								// Recursive delete via native PHP (uninstall runs without
+								// WP_Filesystem context).
+								$it = new RecursiveIteratorIterator(
+									new RecursiveDirectoryIterator( $real_path, RecursiveDirectoryIterator::SKIP_DOTS ),
+									RecursiveIteratorIterator::CHILD_FIRST
+								);
+								foreach ( $it as $item ) {
+									$item_path = $item->getPathname();
+									if ( $item->isDir() ) {
+										@rmdir( $item_path );
+									} else {
+										@unlink( $item_path );
+									}
+								}
+								@rmdir( $real_path );
+							}
+						}
+						break;
+					}
+				}
+			}
+		}
+	}
+}

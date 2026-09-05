@@ -6,6 +6,8 @@
  * @since 1.0.0
  */
 
+declare( strict_types = 1 );
+
 // @codeCoverageIgnoreStart
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
@@ -135,7 +137,7 @@ function plsr_print_speculation_rules(): void {
 	}
 
 	wp_print_inline_script_tag(
-		(string) wp_json_encode( plsr_get_speculation_rules() ),
+		(string) wp_json_encode( plsr_get_speculation_rules(), JSON_HEX_TAG | JSON_UNESCAPED_SLASHES ),
 		array( 'type' => 'speculationrules' )
 	);
 }
