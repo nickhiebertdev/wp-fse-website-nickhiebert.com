@@ -8,7 +8,7 @@ on:
 jobs:
   ftp-deploy:
     name: FTP Deploy
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, ftp-deploy]
 
     steps:
       - name: Checkout repository
