@@ -1,4 +1,4 @@
-name: Deploy via SFTP
+name: Deploy via FTP
 
 on:
   push:
@@ -6,31 +6,29 @@ on:
       - main
 
 jobs:
-  sftp-deploy:
-    name: SFTP Deploy
+  ftp-deploy:
+    name: FTP Deploy
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: SFTP Deploy - Child Theme
-        uses: wlixcc/SFTP-Deploy-Action@v1.2.4
+      - name: FTP Deploy - Child Theme
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
           server: ${{ secrets.FTP_SERVER }}
-          port: ${{ secrets.FTP_PORT }}
           username: ${{ secrets.FTP_USERNAME }}
-          ssh_private_key: ${{ secrets.SFTP_PRIVATE_KEY }}
-          local_path: wp-content/themes/wp-child-theme-wp-fse-website-nickhiebert/*
-          remote_path: /wp-fse-website-nickhiebert/wp-content/themes/wp-child-theme-wp-fse-website-nickhiebert/
+          password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: wp-content/themes/wp-child-theme-wp-fse-website-nickhiebert/
+          server-dir: wp-fse-website-nickhiebert/wp-content/themes/wp-child-theme-wp-fse-website-nickhiebert/
 
       # Once the blocks plugin folder exists as a sibling to the theme, add a second step here:
-      # - name: SFTP Deploy - Blocks Plugin
-      #   uses: wlixcc/SFTP-Deploy-Action@v1.2.4
+      # - name: FTP Deploy - Blocks Plugin
+      #   uses: SamKirkland/FTP-Deploy-Action@v4.3.5
       #   with:
       #     server: ${{ secrets.FTP_SERVER }}
-      #     port: ${{ secrets.FTP_PORT }}
       #     username: ${{ secrets.FTP_USERNAME }}
-      #     ssh_private_key: ${{ secrets.SFTP_PRIVATE_KEY }}
-      #     local_path: wp-content/plugins/your-blocks-plugin-name/*
-      #     remote_path: /wp-fse-website-nickhiebert/wp-content/plugins/your-blocks-plugin-name/
+      #     password: ${{ secrets.FTP_PASSWORD }}
+      #     local-dir: wp-content/plugins/your-blocks-plugin-name/
+      #     server-dir: wp-fse-website-nickhiebert/wp-content/plugins/your-blocks-plugin-name/
