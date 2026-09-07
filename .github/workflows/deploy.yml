@@ -8,7 +8,7 @@ on:
 jobs:
   ftp-deploy:
     name: FTP Deploy
-    runs-on: [self-hosted, ftp-deploy]
+    runs-on: ubuntu-latest
 
     steps:
       - name: Checkout repository
@@ -20,6 +20,7 @@ jobs:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
+          protocol: ftps
           local-dir: wp-content/themes/wp-child-theme-wp-fse-website-nickhiebert/
           server-dir: wp-fse-website-nickhiebert/wp-content/themes/wp-child-theme-wp-fse-website-nickhiebert/
 
