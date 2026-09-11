@@ -24,12 +24,26 @@ jobs:
           local-dir: wp-content/themes/wp-child-theme-wp-fse-website-nickhiebert/
           server-dir: wp-fse-website-nickhiebert/wp-content/themes/wp-child-theme-wp-fse-website-nickhiebert/
 
-      # Once the blocks plugin folder exists as a sibling to the theme, add a second step here:
-      # - name: FTP Deploy - Blocks Plugin
-      #   uses: SamKirkland/FTP-Deploy-Action@v4.3.5
-      #   with:
-      #     server: ${{ secrets.FTP_SERVER }}
-      #     username: ${{ secrets.FTP_USERNAME }}
-      #     password: ${{ secrets.FTP_PASSWORD }}
-      #     local-dir: wp-content/plugins/your-blocks-plugin-name/
-      #     server-dir: wp-fse-website-nickhiebert/wp-content/plugins/your-blocks-plugin-name/
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Build blocks plugin
+        working-directory: wp-content/plugins/wp-fse-website-nickhiebert-blocks
+        run: |
+          npm ci
+          npm run build
+
+      - name: FTP Deploy - Blocks Plugin
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          protocol: ftps
+          local-dir: wp-content/plugins/wp-fse-website-nickhiebert-blocks/
+          server-dir: wp-fse-website-nickhiebert/wp-content/plugins/wp-fse-website-nickhiebert-blocks/
+          exclude: |
+            **/node_modules/**
+            **/src/**
