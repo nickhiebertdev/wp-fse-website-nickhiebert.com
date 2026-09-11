@@ -4,10 +4,26 @@ on:
   push:
     branches:
       - main
+  workflow_dispatch:
 
 jobs:
+  debug-ftp-listing:
+    name: Debug FTP Listing
+    runs-on: ubuntu-latest
+    if: github.event_name == 'workflow_dispatch'
+    steps:
+      - name: List FTP root and expected paths
+        run: |
+          echo "--- Root directory ---"
+          curl -s --ssl-reqd -k --connect-timeout 15 -u "${{ secrets.FTP_USERNAME }}:${{ secrets.FTP_PASSWORD }}" "ftp://${{ secrets.FTP_SERVER }}/" || echo "FAILED"
+          echo "--- wp-fse-website-nickhiebert/ (current server-dir prefix) ---"
+          curl -s --ssl-reqd -k --connect-timeout 15 -u "${{ secrets.FTP_USERNAME }}:${{ secrets.FTP_PASSWORD }}" "ftp://${{ secrets.FTP_SERVER }}/wp-fse-website-nickhiebert/" || echo "FAILED"
+          echo "--- wp-fse-website-nickhiebertdotcom/ (candidate correct prefix) ---"
+          curl -s --ssl-reqd -k --connect-timeout 15 -u "${{ secrets.FTP_USERNAME }}:${{ secrets.FTP_PASSWORD }}" "ftp://${{ secrets.FTP_SERVER }}/wp-fse-website-nickhiebertdotcom/" || echo "FAILED"
+
   ftp-deploy:
     name: FTP Deploy
+    if: github.event_name == 'push'
     runs-on: ubuntu-latest
 
     steps:
