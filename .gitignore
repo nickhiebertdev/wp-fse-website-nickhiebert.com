@@ -18,3 +18,5 @@ sftp.json
 # Ignore JS dependencies and environment secrets
 node_modules/
 .env
+# Ignore stale SSL domain-validation tokens
+.well-known/pki-validation/
