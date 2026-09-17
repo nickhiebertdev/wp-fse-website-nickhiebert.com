@@ -20,6 +20,8 @@ jobs:
           curl -s --ssl-reqd -k --connect-timeout 15 -u "${{ secrets.FTP_USERNAME }}:${{ secrets.FTP_PASSWORD }}" "ftp://${{ secrets.FTP_SERVER }}/wp-fse-website-nickhiebert/" || echo "FAILED"
           echo "--- wp-fse-website-nickhiebertdotcom/ (candidate correct prefix) ---"
           curl -s --ssl-reqd -k --connect-timeout 15 -u "${{ secrets.FTP_USERNAME }}:${{ secrets.FTP_PASSWORD }}" "ftp://${{ secrets.FTP_SERVER }}/wp-fse-website-nickhiebertdotcom/" || echo "FAILED"
+          echo "--- wp-fse-website-nickhiebert.com/ (matches cPanel Git repo path seen earlier) ---"
+          curl -s --ssl-reqd -k --connect-timeout 15 -u "${{ secrets.FTP_USERNAME }}:${{ secrets.FTP_PASSWORD }}" "ftp://${{ secrets.FTP_SERVER }}/wp-fse-website-nickhiebert.com/" || echo "FAILED"
 
   ftp-deploy:
     name: FTP Deploy
