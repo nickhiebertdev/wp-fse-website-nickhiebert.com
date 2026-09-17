@@ -4,28 +4,10 @@ on:
   push:
     branches:
       - main
-  workflow_dispatch:
 
 jobs:
-  debug-ftp-listing:
-    name: Debug FTP Listing
-    runs-on: ubuntu-latest
-    if: github.event_name == 'workflow_dispatch'
-    steps:
-      - name: List FTP root and expected paths
-        run: |
-          echo "--- Root directory ---"
-          curl -s --ssl-reqd -k --connect-timeout 15 -u "${{ secrets.FTP_USERNAME }}:${{ secrets.FTP_PASSWORD }}" "ftp://${{ secrets.FTP_SERVER }}/" || echo "FAILED"
-          echo "--- wp-fse-website-nickhiebert/ (current server-dir prefix) ---"
-          curl -s --ssl-reqd -k --connect-timeout 15 -u "${{ secrets.FTP_USERNAME }}:${{ secrets.FTP_PASSWORD }}" "ftp://${{ secrets.FTP_SERVER }}/wp-fse-website-nickhiebert/" || echo "FAILED"
-          echo "--- wp-fse-website-nickhiebertdotcom/ (candidate correct prefix) ---"
-          curl -s --ssl-reqd -k --connect-timeout 15 -u "${{ secrets.FTP_USERNAME }}:${{ secrets.FTP_PASSWORD }}" "ftp://${{ secrets.FTP_SERVER }}/wp-fse-website-nickhiebertdotcom/" || echo "FAILED"
-          echo "--- wp-fse-website-nickhiebert.com/ (matches cPanel Git repo path seen earlier) ---"
-          curl -s --ssl-reqd -k --connect-timeout 15 -u "${{ secrets.FTP_USERNAME }}:${{ secrets.FTP_PASSWORD }}" "ftp://${{ secrets.FTP_SERVER }}/wp-fse-website-nickhiebert.com/" || echo "FAILED"
-
   ftp-deploy:
     name: FTP Deploy
-    if: github.event_name == 'push'
     runs-on: ubuntu-latest
 
     steps:
@@ -40,7 +22,7 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           protocol: ftps
           local-dir: wp-content/themes/wp-child-theme-wp-fse-website-nickhiebert/
-          server-dir: wp-fse-website-nickhiebert/wp-content/themes/wp-child-theme-wp-fse-website-nickhiebert/
+          server-dir: wp-content/themes/wp-child-theme-wp-fse-website-nickhiebert/
 
       - name: Set up Node.js
         uses: actions/setup-node@v4
@@ -61,7 +43,7 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           protocol: ftps
           local-dir: wp-content/plugins/wp-fse-website-nickhiebert-blocks/
-          server-dir: wp-fse-website-nickhiebert/wp-content/plugins/wp-fse-website-nickhiebert-blocks/
+          server-dir: wp-content/plugins/wp-fse-website-nickhiebert-blocks/
           exclude: |
             **/node_modules/**
             **/src/**
