@@ -5,7 +5,7 @@
 	"version": "0.1.0",
 	"title": "WP FSE Website Nick Hiebert Blocks",
 	"category": "widgets",
-	"icon": "smiley",
+	"icon": "external",
 	"description": "Example block scaffolded with Create Block tool.",
 	"example": {},
 	"supports": {
