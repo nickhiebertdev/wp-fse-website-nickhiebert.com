@@ -16,9 +16,6 @@ $context = array('isOpen' => true);
     data-wp-interactive="nickhiebert/modal-cta-notification"
     <?php echo wp_interactivity_data_wp_context($context); ?>
     data-wp-bind--hidden="!context.isOpen">
-    <p class="modal-cta-notification__message">
-        <?php esc_html_e('Interested in working together?', 'wp-fse-website-nickhiebert-blocks'); ?>
-    </p>
 
     <div class="modal-cta-notification__actions">
         <a href="mailto:nick.hiebert@gmail.com" class="modal-cta-notification__cta wp-element-button">
