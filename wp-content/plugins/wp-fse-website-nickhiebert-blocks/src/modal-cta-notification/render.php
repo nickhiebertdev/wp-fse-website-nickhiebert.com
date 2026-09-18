@@ -18,7 +18,7 @@ $context = array('isOpen' => true);
     data-wp-bind--hidden="!context.isOpen">
 
     <div class="modal-cta-notification__actions">
-        <a href="mailto:nick.hiebert@gmail.com" class="modal-cta-notification__cta emailwp-element-button">
+        <a href="mailto:nick.hiebert@gmail.com" class="modal-cta-notification__cta email wp-element-button">
             <?php esc_html_e('Email Nick', 'wp-fse-website-nickhiebert-blocks'); ?>
         </a>
         <a href="https://www.linkedin.com/in/nickhiebert/" class="modal-cta-notification__cta linkedin wp-element-button" target="_blank" rel="noopener noreferrer">
