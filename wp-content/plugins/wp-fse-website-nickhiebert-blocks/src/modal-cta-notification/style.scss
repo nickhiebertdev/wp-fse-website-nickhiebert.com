@@ -9,4 +9,13 @@
 	background-color: #21759b;
 	color: #fff;
 	padding: 2px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 1rem;
+
+	// Without this, display: flex overrides the hidden attribute and the close button stops working.
+	&[hidden] {
+		display: none;
+	}
 }
