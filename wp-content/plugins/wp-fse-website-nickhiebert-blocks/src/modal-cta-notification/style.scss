@@ -26,7 +26,12 @@
 
 		a {
 			border-radius: 9999px;
-			padding: 1rem 2.25rem;
+			padding: 0.875rem 2.25rem;
+			font-size: 0.75em;
+
+			&.linkedin {
+				background-color: #2532e9;
+			}
 		}
 	}
 }
