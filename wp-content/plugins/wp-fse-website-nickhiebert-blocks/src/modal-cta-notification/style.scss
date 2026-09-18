@@ -6,13 +6,12 @@
  */
 
 .wp-block-nickhiebert-modal-cta-notification {
-	background-color: #21759b;
-	color: #fff;
-	padding: 2px;
+	background-color: #fff;
+	padding: 1em;
 	display: flex;
 	align-items: center;
-	justify-content: space-between;
-	gap: 1rem;
+	justify-content: flex-end;
+	gap: 1em;
 
 	// Without this, display: flex overrides the hidden attribute and the close button stops working.
 	&[hidden] {
