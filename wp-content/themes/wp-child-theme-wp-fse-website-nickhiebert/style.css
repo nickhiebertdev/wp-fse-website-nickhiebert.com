@@ -22,18 +22,18 @@ Updated: 2026-09-18 16:28:43
 }
 
 @layer base {
-:root {
+  :root {
     /* Colors */
-    --color-base: #FFFFFF;
+    --color-base: #ffffff;
     --color-contrast: #000000;
-    --color-accent-1: #249CFF;
-    --color-accent-2: #C084FC;
-    --color-accent-3: #F7F1E1;
-    --color-accent-4: #1A1A1A;
+    --color-accent-1: #249cff;
+    --color-accent-2: #c084fc;
+    --color-accent-3: #f7f1e1;
+    --color-accent-4: #1a1a1a;
     --color-accent-5: #595959;
-    --color-accent-6: #D4D4D4;
+    --color-accent-6: #d4d4d4;
 
-/* Typography */
+    /* Typography */
     --text-left: left;
     --text-center: center;
     --text-right: right;
@@ -50,49 +50,46 @@ Updated: 2026-09-18 16:28:43
 }
 
 @layer theme {
-  
 }
 
 @layer components {
-    
-   header.sticky-header {
-        /* !important lets this layered rule beat WordPress's unlayered root block gap. */
-        margin-block-start: 0 !important;
-    }
-
+  :where(.wp-site-blocks) > header {
+    /* !important lets this layered rule beat WordPress's unlayered root block gap. */
+    margin-block-start: 0 !important;
+  }
 }
 
 @layer utilities {
-/* Typography */
-    .text-left {
-        text-align: var(--text-left);
-    }
-    .text-center {
-        text-align: var(--text-center);
-    }
-    .text-right {
-        text-align: var(--text-right);
-    }
-    .text-justify {
-        text-align: var(--text-justify);
-    }
-    .text-start {
-        text-align: var(--text-start);
-    }
-    .text-end {
-        text-align: var(--text-end);
-    }
-    .text-uppercase {
-        text-transform: var(--text-uppercase);
-    }
-    .text-lowercase {
-        text-transform: var(--text-lowercase);
-    }
-    .text-capitalize {
-        text-transform: var(--text-capitalize);
-    }
-/* Sizing */
-    .w-full {
-        width: var(--w-full);
-    }
+  /* Typography */
+  .text-left {
+    text-align: var(--text-left);
+  }
+  .text-center {
+    text-align: var(--text-center);
+  }
+  .text-right {
+    text-align: var(--text-right);
+  }
+  .text-justify {
+    text-align: var(--text-justify);
+  }
+  .text-start {
+    text-align: var(--text-start);
+  }
+  .text-end {
+    text-align: var(--text-end);
+  }
+  .text-uppercase {
+    text-transform: var(--text-uppercase);
+  }
+  .text-lowercase {
+    text-transform: var(--text-lowercase);
+  }
+  .text-capitalize {
+    text-transform: var(--text-capitalize);
+  }
+  /* Sizing */
+  .w-full {
+    width: var(--w-full);
+  }
 }
