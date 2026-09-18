@@ -17,4 +17,16 @@
 	&[hidden] {
 		display: none;
 	}
+
+	.modal-cta-notification__actions {
+		display: flex;
+		flex-wrap: wrap;
+		width: 350px;
+		justify-content: space-evenly;
+
+		a {
+			border-radius: 9999px;
+			padding: 1rem 2.25rem;
+		}
+	}
 }
