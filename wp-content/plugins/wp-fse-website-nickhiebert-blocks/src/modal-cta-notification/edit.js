@@ -31,7 +31,7 @@ export default function Edit() {
 	return (
 		<p { ...useBlockProps() }>
 			{ __(
-				'WP FSE Website Nick Hiebert Blocks – hello from the editor!',
+				'WP FSE Website Nick Hiebert Blocks – Hello from Editor!',
 				'wp-fse-website-nickhiebert-blocks'
 			) }
 		</p>

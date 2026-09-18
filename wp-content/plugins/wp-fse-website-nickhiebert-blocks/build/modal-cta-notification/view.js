@@ -1,0 +1,1 @@
+import{getContext as t,store as e}from"@wordpress/interactivity";const{actions:o}=e("nickhiebert/modal-cta-notification",{actions:{close(e){e.preventDefault(),t().isOpen=!1},handleKeydown(t){" "===t.key&&o.close(t)}}});

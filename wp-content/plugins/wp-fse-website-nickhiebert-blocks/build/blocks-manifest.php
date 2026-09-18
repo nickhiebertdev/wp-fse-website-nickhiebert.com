@@ -1,25 +1,27 @@
 <?php
 // This file is generated. Do not modify it manually.
 return array(
-	'wp-fse-website-nickhiebert-blocks' => array(
+	'modal-cta-notification' => array(
 		'$schema' => 'https://schemas.wp.org/trunk/block.json',
 		'apiVersion' => 3,
-		'name' => 'create-block/wp-fse-website-nickhiebert-blocks',
+		'name' => 'nickhiebert/modal-cta-notification',
 		'version' => '0.1.0',
-		'title' => 'WP FSE Website Nick Hiebert Blocks',
+		'title' => 'Modal CTA Notification',
 		'category' => 'widgets',
-		'icon' => 'smiley',
-		'description' => 'Example block scaffolded with Create Block tool.',
+		'icon' => 'external',
+		'description' => 'Modal CTA Notification that display a modal banner at the top of the website with a email Nick and LinkedIn CTAs.',
 		'example' => array(
 			
 		),
 		'supports' => array(
-			'html' => false
+			'html' => false,
+			'interactivity' => true
 		),
 		'textdomain' => 'wp-fse-website-nickhiebert-blocks',
 		'editorScript' => 'file:./index.js',
 		'editorStyle' => 'file:./index.css',
 		'style' => 'file:./style-index.css',
-		'viewScript' => 'file:./view.js'
+		'viewScriptModule' => 'file:./view.js',
+		'render' => 'file:./render.php'
 	)
 );
