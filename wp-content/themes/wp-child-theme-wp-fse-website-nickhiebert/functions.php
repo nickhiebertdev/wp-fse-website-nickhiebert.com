@@ -55,18 +55,24 @@ function nickhiebert_tech_stack_shortcode()
     if (!have_rows('tech_stack_items', 'option')) return '';
     ob_start();
 ?>
-    <div class="tech-stack-grid">
-        <?php while (have_rows('tech_stack_items', 'option')): the_row();
-            $icon = get_sub_field('icon');
-            $label = get_sub_field('label');
-            $url = get_sub_field('url');
-        ?>
-            <div class="tech-stack-item">
-                <?php if ($url): ?><a href="<?php echo esc_url($url); ?>" target="_blank" rel="noopener"><?php endif; ?>
-                    <img src="<?php echo esc_url($icon['url']); ?>" alt="<?php echo esc_attr($label); ?>">
-                    <?php if ($url): ?></a><?php endif; ?>
-            </div>
-        <?php endwhile; ?>
+    <div class="tech-stack">
+        <ul class="tech-stack-grid">
+            <?php while (have_rows('tech_stack_items', 'option')): the_row();
+                $icon = get_sub_field('icon');
+                $label = get_sub_field('label');
+                $width = absint(get_sub_field('width'));
+                $height = absint(get_sub_field('height'));
+                $url = get_sub_field('url');
+                $class = get_sub_field('class');
+                if (!$icon) continue;
+            ?>
+                <li class="tech-stack-item">
+                    <?php if ($url): ?><a href="<?php echo esc_url($url); ?>" target="_blank" rel="noopener"><?php endif; ?>
+                        <img src="<?php echo esc_url($icon['url']); ?>" alt="<?php echo esc_attr($label); ?>" <?php if ($width) : ?>width="<?php echo $width; ?>" <?php endif; ?> <?php if ($height) : ?>height="<?php echo $height; ?>" <?php endif; ?><?php if ($class) : ?>class="<?php echo esc_attr($class); ?>" <?php endif; ?>loading="lazy">
+                        <?php if ($url): ?></a><?php endif; ?>
+                </li>
+            <?php endwhile; ?>
+        </ul>
     </div>
 <?php
     return ob_get_clean();
