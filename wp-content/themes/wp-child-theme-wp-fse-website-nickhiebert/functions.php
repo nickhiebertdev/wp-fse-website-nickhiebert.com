@@ -64,7 +64,6 @@ function nickhiebert_tech_stack_shortcode()
             <div class="tech-stack-item">
                 <?php if ($url): ?><a href="<?php echo esc_url($url); ?>" target="_blank" rel="noopener"><?php endif; ?>
                     <img src="<?php echo esc_url($icon['url']); ?>" alt="<?php echo esc_attr($label); ?>">
-                    <span><?php echo esc_html($label); ?></span>
                     <?php if ($url): ?></a><?php endif; ?>
             </div>
         <?php endwhile; ?>
