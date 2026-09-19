@@ -21,13 +21,13 @@
 	.modal-cta-notification__actions {
 		display: flex;
 		flex-wrap: wrap;
-		width: 350px;
+		width: 300px;
 		justify-content: space-evenly;
 
 		a {
 			border-radius: 9999px;
-			padding: 0.875rem 2.25rem;
-			font-size: 0.75em;
+			font-size: 0.625em;
+			padding: 0.625rem 2.25rem;
 
 			&.linkedin {
 				background-color: #2532e9;

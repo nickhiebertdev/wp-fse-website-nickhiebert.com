@@ -33,6 +33,6 @@ $context = array('isOpen' => true);
         aria-label="<?php esc_attr_e('Dismiss notification', 'wp-fse-website-nickhiebert-blocks'); ?>"
         data-wp-on--click="actions.close"
         data-wp-on--keydown="actions.handleKeydown">
-        &times;
+        &#10005;
     </a>
 </div>
