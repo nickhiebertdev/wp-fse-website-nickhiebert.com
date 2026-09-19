@@ -2,7 +2,7 @@
 
 /**
  * Plugin Name:       WP FSE Website Nick Hiebert Blocks
- * Description:       Custom Gutenberg Blockss for the WP FSE Website Nick Hiebert.
+ * Description:       Custom Gutenberg Blocks for the WP FSE Website Nick Hiebert.
  * Version:           0.1.0
  * Requires at least: 6.8
  * Requires PHP:      7.4
