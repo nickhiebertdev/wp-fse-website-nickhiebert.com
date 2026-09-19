@@ -68,7 +68,7 @@ function nickhiebert_tech_stack_shortcode()
             ?>
                 <li class="tech-stack-item">
                     <?php if ($url): ?><a href="<?php echo esc_url($url); ?>" target="_blank" rel="noopener"><?php endif; ?>
-                        <img src="<?php echo esc_url($icon['url']); ?>" alt="<?php echo esc_attr($label); ?>" <?php if ($width) : ?>width="<?php echo $width; ?>" <?php endif; ?> <?php if ($height) : ?>height="<?php echo $height; ?>" <?php endif; ?><?php if ($class) : ?>class="<?php echo esc_attr($class); ?>" <?php endif; ?>loading="lazy">
+                        <img src="<?php echo esc_url($icon['url']); ?>" alt="<?php echo esc_attr($label); ?>" <?php if ($width) : ?>width="<?php echo $width; ?>" <?php endif; ?> <?php if ($height) : ?>height="<?php echo $height; ?>" <?php endif; ?><?php if ($class) : ?>class="<?php echo esc_attr($class); ?>" <?php endif; ?> loading="lazy">
                         <?php if ($url): ?></a><?php endif; ?>
                 </li>
             <?php endwhile; ?>
