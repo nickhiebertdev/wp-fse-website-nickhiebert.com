@@ -54,9 +54,12 @@ Updated: 2026-09-18 16:28:43
 
 @layer components {
   :where(.wp-site-blocks) > header {
-    text-decoration: none;
     /* !important lets this layered rule beat WordPress's unlayered root block gap. */
     margin-block-start: 0 !important;
+
+    a {
+      text-decoration: none;
+    }
   }
 }
 
