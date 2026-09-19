@@ -49,4 +49,29 @@ if (function_exists('acf_add_options_page')) {
     ));
 }
 
+// ACF Repeater - Tech Stack
+function nickhiebert_tech_stack_shortcode()
+{
+    if (!have_rows('tech_stack_items', 'option')) return '';
+    ob_start();
+?>
+    <div class="tech-stack-grid">
+        <?php while (have_rows('tech_stack_items', 'option')): the_row();
+            $icon = get_sub_field('icon');
+            $label = get_sub_field('label');
+            $url = get_sub_field('url');
+        ?>
+            <div class="tech-stack-item">
+                <?php if ($url): ?><a href="<?php echo esc_url($url); ?>" target="_blank" rel="noopener"><?php endif; ?>
+                    <img src="<?php echo esc_url($icon['url']); ?>" alt="<?php echo esc_attr($label); ?>">
+                    <span><?php echo esc_html($label); ?></span>
+                    <?php if ($url): ?></a><?php endif; ?>
+            </div>
+        <?php endwhile; ?>
+    </div>
+<?php
+    return ob_get_clean();
+}
+add_shortcode('tech_stack', 'nickhiebert_tech_stack_shortcode');
+
 // END ENQUEUE PARENT ACTION
