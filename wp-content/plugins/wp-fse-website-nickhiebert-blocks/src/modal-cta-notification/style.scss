@@ -31,6 +31,14 @@
 
 			&.linkedin {
 				background-color: #2532e9;
+
+				&:hover {
+					background-color: color-mix(
+						in srgb,
+						#2532e9 85%,
+						transparent
+					);
+				}
 			}
 		}
 	}
