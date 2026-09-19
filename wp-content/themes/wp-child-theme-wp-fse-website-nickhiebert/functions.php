@@ -36,9 +36,9 @@ add_action('wp_enqueue_scripts', 'child_theme_configurator_css', 10);
 // ACF's UI Create Field Groups - Top-Level Options Page
 if (function_exists('acf_add_options_page')) {
     acf_add_options_page(array(
-        'page_title'    => 'Site Settings',
-        'menu_title'    => 'Site Settings',
-        'menu_slug'     => 'site-settings',
+        'page_title'    => 'ACF Options Settings',
+        'menu_title'    => 'ACF Options Settings',
+        'menu_slug'     => 'acf-options-settings',
         'capability'    => 'edit_posts',
         'redirect'      => false,
     ));
