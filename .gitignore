@@ -20,3 +20,22 @@ node_modules/
 .env
 # Ignore stale SSL domain-validation tokens
 .well-known/pki-validation/
+
+# Ignore WordPress core (managed by WordPress updates, not this repo)
+wp-admin/
+wp-includes/
+wp-login.php
+wp-activate.php
+wp-cron.php
+wp-mail.php
+wp-settings.php
+wp-signup.php
+wp-trackback.php
+xmlrpc.php
+wp-blog-header.php
+wp-comments-post.php
+wp-links-opml.php
+wp-load.php
+
+# Ignore backup files
+.htaccess.bk
