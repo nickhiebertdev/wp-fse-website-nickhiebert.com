@@ -7,7 +7,7 @@ Author URI: https://wordpress.org
 Description: Custom Child-Theme of Twenty Twenty-Five for WP FSE (Full Site Editing) Website Nick Hiebert
 Tags: one-column,custom-colors,custom-menu,custom-logo,editor-style,featured-images,full-site-editing,block-patterns,rtl-language-support,sticky-post,threaded-comments,translation-ready,wide-blocks,block-styles,style-variations,accessibility-ready,blog,portfolio,news
 Version: 1.5.1789875746
-Updated: 2026-09-19 21:12
+Updated: 2026-09-20 11:25
 
 */
 
@@ -56,10 +56,6 @@ Updated: 2026-09-19 21:12
   :where(.wp-site-blocks) > header {
     /* !important lets this layered rule beat WordPress's unlayered root block gap. */
     margin-block-start: 0 !important;
-
-    a.modal-cta-notification__close {
-      text-decoration: none !important;
-    }
   }
 
   .home {
