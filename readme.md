@@ -1,5 +1,7 @@
 # WordPress Full Site Editing (FSE) Website
 
+A personal WordPress Full Site Editing project used to explore modern block development, from custom Gutenberg blocks with React to a fully automated CI/CD deployment pipeline.
+
 Built and maintained locally in VS Code on a MacBook Pro, with changes tracked in Git and pushed to GitHub. A GitHub Actions pipeline automatically builds and deploys every push straight to the live server, no manual FTP, no manual server side steps.
 
 [![Deploy via FTP](https://github.com/nickhiebertdev/wp-fse-website-nickhiebert.com/actions/workflows/deploy.yml/badge.svg)](https://github.com/nickhiebertdev/wp-fse-website-nickhiebert.com/actions/workflows/deploy.yml)
