@@ -31,13 +31,6 @@ if (!function_exists('child_theme_configurator_css')):
 endif;
 add_action('wp_enqueue_scripts', 'child_theme_configurator_css', 10);
 
-// Allow SVG uploads
-add_filter('upload_mimes', function ($mimes) {
-    $mimes['svg'] = 'image/svg+xml';
-    return $mimes;
-});
-
-
 // ACF's UI Create Field Groups - Top-Level Options Page
 if (function_exists('acf_add_options_page')) {
     acf_add_options_page(array(
