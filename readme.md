@@ -48,5 +48,6 @@ Source code: [View the shortcode source](https://github.com/nickhiebertdev/wp-fs
 ![Tech Stack Logos - Website Preview](assets/Tech-Stack-Logos-Website-Preview.jpg)
 ![Tech Stack Logos - ACF Repeater Field Group & Field Opened](assets/Tech-Stack-Logos-ACF-Field-Group-Image-Field-Opened.png)
 ![Tech Stack Logos - ACF Options Settings Page](assets/Tech-Stack-Logos-ACF-Options-Page.jpg)
+![Tech Stack Logos - ACF Options Tech Stack Items](assets/Tech-Stack-Logos-ACF-Field-Group-Tech-Stack-Items.png)
 ![Tech Stack Logos - Responsive Footer Layout](assets/Tech-Stack-Logos-Responsive-Footer.jpg)
 ![Tech Stack Logos - Rendered HTML in DevTools](assets/Tech-Stack-Logos-Rendered-HTML.jpg)
