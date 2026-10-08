@@ -5,6 +5,8 @@
   "title": "Home About Section",
   "description": "Two column section with an image and copy.",
   "category": "design",
+  "version": "1.0.0",
+  "style": "file:./style.css",
   "icon": "align-pull-left",
   "acf": {
     "mode": "preview",
