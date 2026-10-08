@@ -1,0 +1,16 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "nickhiebert/home-about-section",
+  "title": "Home About Section",
+  "description": "Two column section with an image and copy.",
+  "category": "design",
+  "icon": "align-pull-left",
+  "acf": {
+    "mode": "preview",
+    "renderTemplate": "render.php"
+  },
+  "supports": {
+    "anchor": true
+  }
+}

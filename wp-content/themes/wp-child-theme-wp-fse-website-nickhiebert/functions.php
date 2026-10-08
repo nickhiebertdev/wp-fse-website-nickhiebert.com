@@ -42,6 +42,8 @@ if (function_exists('acf_add_options_page')) {
     ));
 }
 
+
+
 // ACF Repeater - Tech Stack
 function nickhiebert_tech_stack_shortcode()
 {
@@ -73,3 +75,8 @@ function nickhiebert_tech_stack_shortcode()
 add_shortcode('tech_stack', 'nickhiebert_tech_stack_shortcode');
 
 // END ENQUEUE PARENT ACTION
+
+// Register the Home About Section block
+add_action('init', function () {
+    register_block_type(get_stylesheet_directory() . '/blocks/home-about-section');
+});
