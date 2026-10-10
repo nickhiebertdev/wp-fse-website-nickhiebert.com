@@ -32,7 +32,6 @@ Built with: React (JSX), PHP, WordPress Interactivity API, SCSS
 Source code: [View the block source](https://github.com/nickhiebertdev/wp-fse-website-nickhiebert.com/tree/main/wp-content/plugins/wp-fse-website-nickhiebert-blocks) - edit.js, index.js, and view.js contain the React/JS logic.
 
 ![Modal CTA Notification - Website Preview](assets/Modal-CTA-Notification-Website-Preview.jpg)
-![Modal CTA Notification - Header Template Part](assets/Modal-CTA-Notification-Template-Parts-In-Header.jpg)
 ![Modal CTA Notification - Gutenberg Block Plugin](assets/Modal-CTA-Notification-Gutenberg-Block-Plugin.jpg)
 
 ## Tech Stack Logos - Technology Logo Grid with Advanced Custom Fields (ACF)
